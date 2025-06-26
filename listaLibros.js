@@ -94,4 +94,4 @@ if (require.main === module) {
     libros
 }
 
-module.exports = {libros};
+module.exports = libros;

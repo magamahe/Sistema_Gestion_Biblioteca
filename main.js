@@ -6,6 +6,13 @@ Muestra un menú interactivo con prompt().
 ---------------------------------------------------------*/
 
 const prompt = require("prompt-sync")();
+//const prestamos = require('./prestamos.js');
+
+const libros = require('./listaLibros.js');
+const {
+  prestarLibro,
+  devolverLibro, 
+  mostrarLibrosDisponibles}= require("./sistema_prestamos.js");
 
 const {
   registrarUsuario,
@@ -113,6 +120,7 @@ opcion = parseInt(entrada);
         borrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
         break;
       case 9:
+        mostrarLibrosDisponibles(libros);
         prestarLibro(parseInt(prompt("📘 ID del libro:")), parseInt(prompt("🧑 ID del usuario:")));
         break;
       case 10:

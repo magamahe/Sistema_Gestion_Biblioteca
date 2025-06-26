@@ -14,13 +14,8 @@ Agrega un nuevo usuario al array usuarios.
 // Si hay usuarios, toma el ID más alto actual y le suma 1.
 
 function generarNuevoIdUsuario() {
-  // Si no hay usuarios, el primer ID será 1
-  if (usuarios.length === 0) return 1;
-
-  // Extrae todos los IDs de los usuarios existentes
-  const ids = usuarios.map(u => u.id);
-
-  // Devuelve el mayor ID + 1, asegurando que no se repitan
+    if (usuarios.length === 0) return 1;// Si no hay usuarios, el primer ID será 1
+  const ids = usuarios.map(u => u.id);// Extrae todos los IDs de los usuarios existentes
   return Math.max(...ids) + 1;
 }
 
@@ -29,14 +24,10 @@ function generarNuevoIdUsuario() {
 // Muestra un mensaje de éxito en consola.
 
 function registrarUsuario(nombre, email) {
-  // Genera un nuevo ID basado en los IDs actuales
-  const nuevoId = generarNuevoIdUsuario();
-
-  // Agrega el nuevo usuario al array global con datos iniciales
-  usuarios.push({ id: nuevoId, nombre, email, librosPrestados: [] });
-
-  // Muestra mensaje de éxito
-  console.log("✅ Usuario registrado correctamente.");
+  const nuevoId = generarNuevoIdUsuario();// Genera un nuevo ID basado en los IDs actuales
+  usuarios.push({ id: nuevoId, nombre, email, librosPrestados: [] }); // Agrega el nuevo usuario al array global con datos iniciales
+  console.log(`\n✅ Usuario registrado correctamente:  \n- ID= ${nuevoId} \n- Nombre= ${nombre}  \n- Email= ${email} `);   // Muestra mensaje de éxito
+  return true;
 }
 
 /* ---------------------------------------------------
@@ -68,28 +59,23 @@ function buscarUsuario(email) {
 // Permite cancelar escribiendo 'salir'.
 
 function solicitarEmailExistente(prompt) {
-  // Solicita al usuario que ingrese un email
-  let email = prompt("📧 Ingrese email:");
+  let email = prompt("📧 Ingrese email:");// Solicita al usuario que ingrese un email
   let usuario = buscarUsuario(email); // Busca si ese email existe en el sistema
 
   // Mientras no se encuentre un usuario con ese email...
   while (!usuario) {
     console.log("❌ Email no registrado.");
 
-    // Vuelve a pedir el email
-    email = prompt("📧 Ingrese un email válido o escriba 'salir' para cancelar:");
-
-    // Si el usuario escribe "salir", se cancela la operación
-    if (email.toLowerCase() === 'salir') {
+    email = prompt("📧 Ingrese un email válido o escriba 'salir' para cancelar:"); // Vuelve a pedir el email
+    
+    if (email.toLowerCase() === 'salir') { // Si el usuario escribe "salir", se cancela la operación
       return null;
     }
 
-    // Vuelve a buscar el usuario con el nuevo email ingresado
-    usuario = buscarUsuario(email);
+    usuario = buscarUsuario(email);// Vuelve a buscar el usuario con el nuevo email ingresado
   }
-
-  // Si se encontró un usuario, lo devuelve
-  return usuario;
+  return usuario;// Si se encontró un usuario, lo devuelve
+  
 }
 
 /* ------------------------------------------- -----
@@ -102,27 +88,22 @@ Elimina un usuario dado su nombre y email.
 // Muestra mensajes de éxito o error según corresponda.
 
 function borrarUsuario(nombre, email) {
-  // Buscamos el índice del usuario cuyo nombre (normalizado) y email coincidan
-  const index = usuarios.findIndex(u =>
+  const index = usuarios.findIndex(u =>                         // Buscamos el índice del usuario cuyo nombre (normalizado) y email coincidan
     normalizarTexto(u.nombre) === normalizarTexto(nombre) &&   // Compara nombres sin acentos
     u.email.toLowerCase() === email.toLowerCase()              // Compara emails sin importar mayúsculas
   );
 
   // Si no se encontró el usuario, se informa y se termina la función
   if (index === -1) {
-    console.log("❌ Usuario no encontrado con ese nombre y email.");
+    console.log(`❌ Usuario no encontrado con ese nombre: ${nombre}  y email: ${email}`);
     return false;
   }
-
-  // Eliminamos al usuario del array usando su posición
-  usuarios.splice(index, 1);
-
-  // Confirmamos el borrado con un mensaje
-  console.log("✅ Usuario borrado correctamente.");
+  const usuarioBorrado = usuarios[index];
+  usuarios.splice(index, 1);// Eliminamos al usuario del array usando su posición
+  
+  console.log(`✅ Usuario borrado correctamente.: \nId: ${usuarioBorrado.id} \nusuario :${usuarioBorrado.nombre} \nemail: ${usuarioBorrado.email} `);   // Confirmamos el borrado con un mensaje
   return true;
 }
-
-
 
 // 🧽 Normaliza texto convirtiendo a minúsculas y eliminando acentos.
 // Esto permite comparar cadenas sin preocuparse por acentos o mayúsculas.
