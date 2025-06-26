@@ -13,7 +13,7 @@ const {
   buscarUsuario,
   solicitarEmailExistente,
   borrarUsuario
-} = require("./usuario");
+} = require("./gestion_usuario");
 
 function menuPrincipal() {
   let opcion;
