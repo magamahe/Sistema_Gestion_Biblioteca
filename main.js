@@ -1,4 +1,19 @@
+/* 🖥 PUNTO 9: Interfaz de Usuario por Consola
+
+---------------------------------------------------------
+menuPrincipal()
+Muestra un menú interactivo con prompt(). 
+---------------------------------------------------------*/
+
 const prompt = require("prompt-sync")();
+
+const {
+  registrarUsuario,
+  mostrarTodosLosUsuarios,
+  buscarUsuario,
+  solicitarEmailExistente,
+  borrarUsuario
+} = require("./usuario");
 
 function menuPrincipal() {
   let opcion;
@@ -58,13 +73,41 @@ opcion = parseInt(entrada);
         borrarLibro(parseInt(prompt("🗑️ ID del libro a borrar:")));
         break;
       case 5:
-        registrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
+        const nombre = prompt("🧑 Nombre:");
+        let email = prompt("📧 Email:");
+
+        // Función para validar email (podés tenerla en otro archivo y usarla acá también)
+        function esEmailValido(email) {
+          const partes = email.split('@');
+          return (
+            partes.length === 2 &&
+            partes[0].length >= 8 &&
+            partes[1].includes('.')
+          );
+        }
+
+        // Mientras el email no sea válido, aviso y pido de nuevo
+        while (!esEmailValido(email)) {
+          console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después.Ejemplo: xxxxxxxx@xxx.com");
+          email = prompt("📧 Ingrese un email válido:");
+        }
+
+        // Ahora sí llamo a registrarUsuario con datos correctos
+        registrarUsuario(nombre, email);
+        break;  
+      registrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
         break;
       case 6:
         mostrarTodosLosUsuarios();
         break;
       case 7:
-        console.log(buscarUsuario(prompt("📧 Ingrese email:")));
+        const usuario = solicitarEmailExistente(prompt);
+        if (usuario) {
+          console.log("✅ Usuario encontrado:", usuario);
+          // seguir con acciones
+        } else {
+          console.log("↩️ Operación cancelada.");
+        }
         break;
       case 8:
         borrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
