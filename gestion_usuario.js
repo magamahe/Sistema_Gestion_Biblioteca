@@ -117,7 +117,7 @@ function normalizarTexto(texto) {
 
 
 
-// 📦 Exportamos las funciones y el array para que puedan usarse en otros archivos del sistema.
+// Exportamos las funciones y el array para que puedan usarse en otros archivos del sistema.
 module.exports = {
   registrarUsuario,
   mostrarTodosLosUsuarios,

@@ -6,13 +6,14 @@ Muestra un menú interactivo con prompt().
 ---------------------------------------------------------*/
 
 const prompt = require("prompt-sync")();
-//const prestamos = require('./prestamos.js');
-
+// const prestamos = require('./prestamos.js');
 const libros = require('./listaLibros.js');
+
 const {
   prestarLibro,
-  devolverLibro, 
-  mostrarLibrosDisponibles}= require("./sistema_prestamos.js");
+  devolverLibro,
+  mostrarLibrosDisponibles
+} = require("./sistema_prestamos.js");
 
 const {
   registrarUsuario,
@@ -23,8 +24,7 @@ const {
 } = require("./gestion_usuario");
 
 function menuPrincipal() {
-  let opcion;
-  do {
+  while (true) {
     const entrada = prompt(
 `📚✨ === SISTEMA DE BIBLIOTECA === ✨📚
   
@@ -49,7 +49,7 @@ function menuPrincipal() {
 
 📥Ingrese una opción: `);
 
-opcion = parseInt(entrada);
+    const opcion = parseInt(entrada);
 
     if (isNaN(opcion) || opcion < 0 || opcion > 14) {
       console.log("⚠️ Opción inválida. Ingrese un número entre 0 y 14.");
@@ -67,23 +67,26 @@ opcion = parseInt(entrada);
           prompt("🏷️ Género:")
         );
         break;
+
       case 2:
         const crit = prompt("🔍 Buscar por: ¿titulo, autor o genero?");
         const val = prompt("🔎 Ingrese valor a buscar:");
         console.log(buscarLibro(crit, val));
         break;
+
       case 3:
         const criterio = prompt("↕️ Ordenar por: titulo o anio");
         ordenarLibros(criterio);
         break;
+
       case 4:
         borrarLibro(parseInt(prompt("🗑️ ID del libro a borrar:")));
         break;
+
       case 5:
         const nombre = prompt("🧑 Nombre:");
         let email = prompt("📧 Email:");
 
-        // Función para validar email (podés tenerla en otro archivo y usarla acá también)
         function esEmailValido(email) {
           const partes = email.split('@');
           return (
@@ -93,61 +96,69 @@ opcion = parseInt(entrada);
           );
         }
 
-        // Mientras el email no sea válido, aviso y pido de nuevo
         while (!esEmailValido(email)) {
-          console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después.Ejemplo: xxxxxxxx@xxx.com");
+          console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después. Ejemplo: xxxxxxxx@xxx.com");
           email = prompt("📧 Ingrese un email válido:");
         }
 
-        // Ahora sí llamo a registrarUsuario con datos correctos
         registrarUsuario(nombre, email);
-        break;  
-      registrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
         break;
+
       case 6:
         mostrarTodosLosUsuarios();
         break;
+
       case 7:
         const usuario = solicitarEmailExistente(prompt);
         if (usuario) {
           console.log("✅ Usuario encontrado:", usuario);
-          // seguir con acciones
         } else {
           console.log("↩️ Operación cancelada.");
         }
         break;
+
       case 8:
         borrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
         break;
+
       case 9:
         mostrarLibrosDisponibles(libros);
-        prestarLibro(parseInt(prompt("📘 ID del libro:")), parseInt(prompt("🧑 ID del usuario:")));
+        prestarLibro(
+          parseInt(prompt("📘 ID del libro:")),
+          parseInt(prompt("🧑 ID del usuario:"))
+        );
         break;
+
       case 10:
-        devolverLibro(parseInt(prompt("📘 ID del libro:")), parseInt(prompt("🧑 ID del usuario:")));
+        devolverLibro(
+          parseInt(prompt("📘 ID del libro:")),
+          parseInt(prompt("🧑 ID del usuario:"))
+        );
         break;
+
       case 11:
         generarReporteLibros();
         break;
+
       case 12:
         librosConPalabrasEnTitulo();
         break;
+
       case 13:
         calcularEstadisticas();
         break;
+
       case 14:
         normalizarDatos();
         break;
+
       case 0:
         console.log("👋 Gracias por usar el sistema. ¡Hasta luego!");
-        break;
+        return; // 🔚 Salir de la función y del programa
     }
 
-    if (opcion !== 0) {
-      prompt("⏎ Presione Enter para volver al menú...");
-    }
-
-  } while (opcion !== 0);
+    prompt("⏎ Presione Enter para volver al menú...");
+  }
 }
 
 menuPrincipal();
