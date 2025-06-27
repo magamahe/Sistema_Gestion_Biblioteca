@@ -1,90 +1,90 @@
 const libros = [
     {
         id: 1,
-        título: "Cien años de soledad",
+        titulo: "Cien años de soledad",
         autor: "Gabriel García Márquez",
-        año: 1967,
-        género: "Realismo mágico",
+        anio: 1967,
+        genero: "Realismo mágico",
         disponible: true
     },
     {
         id: 2,
-        título: "Don Quijote de la Mancha",
+        titulo: "Don Quijote de la Mancha",
         autor: "Miguel de Cervantes",
-        año: 1605,
-        género: "Novela de caballerías",
+        anio: 1605,
+        genero: "Novela de caballerías",
         disponible: true
     },
     {
         id: 3,
-        título: "1984",
+        titulo: "1984",
         autor: "George Orwell",
-        año: 1949,
-        género: "Ciencia ficción distópica",
+        anio: 1949,
+        genero: "Ciencia ficción distópica",
         disponible: false
     },
     {
         id: 4,
-        título: "El Señor de los Anillos",
+        titulo: "El Señor de los Anillos",
         autor: "J.R.R. Tolkien",
-        año: 1954,
-        género: "Fantasía épica",
+        anio: 1954,
+        genero: "Fantasía épica",
         disponible: true
     },
     {
         id: 5,
-        título: "Harry Potter y la piedra filosofal",
+        titulo: "Harry Potter y la piedra filosofal",
         autor: "J.K. Rowling",
-        año: 1997,
-        género: "Fantasía",
+        anio: 1997,
+        genero: "Fantasía",
         disponible: true
     },
     {
         id: 6,
-        título: "Matar a un ruiseñor",
+        titulo: "Matar a un ruiseñor",
         autor: "Harper Lee",
-        año: 1960,
-        género: "Novela",
+        anio: 1960,
+        genero: "Novela",
         disponible: false
     },
     {
         id: 7,
-        título: "El gran Gatsby",
+        titulo: "El gran Gatsby",
         autor: "F. Scott Fitzgerald",
-        año: 1925,
-        género: "Novela",
+        anio: 1925,
+        genero: "Novela",
         disponible: true
     },
     {
         id: 8,
-        título: "Orgullo y prejuicio",
+        titulo: "Orgullo y prejuicio",
         autor: "Jane Austen",
-        año: 1813,
-        género: "Romance",
+        anio: 1813,
+        genero: "Romance",
         disponible: true
     },
     {
         id: 9,
-        título: "El hobbit",
+        titulo: "El hobbit",
         autor: "J.R.R. Tolkien",
-        año: 1937,
-        género: "Fantasía",
+        anio: 1937,
+        genero: "Fantasía",
         disponible: true
     },
     {
         id: 10,
-        título: "Crónica de una muerte anunciada",
+        titulo: "Crónica de una muerte anunciada",
         autor: "Gabriel García Márquez",
-        año: 1981,
-        género: "Novela",
+        anio: 1981,
+        genero: "Novela",
         disponible: false
     },
     {
         id: 11,
-        título: "La sombra del viento",
+        titulo: "La sombra del viento",
         autor: "Carlos Ruiz Zafón",
-        año: 2001,
-        género: "Misterio",
+        anio: 2001,
+        genero: "Misterio",
         disponible: true
     }
 ];

@@ -36,4 +36,4 @@ if (require.main === module) {
     usuarios
 }
 
-module.exports = {usuarios};
+module.exports = usuarios;
