@@ -5,7 +5,7 @@ const prompt = require('prompt-sync')();
 // a)- Implementar una función agregarLibro(id, titulo, autor, anio, genero) que agregue un nuevo libro al array libros.
 
 // importar array de libros
-const { libros } = require('./listaLibros.js')
+const libros = require('./01-lista_libros.js');
 
 // armar una copia del array original
 let biblioteca = [...libros];
@@ -54,8 +54,8 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
 }
 
 //prueba
-agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio');
-agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio');
+console.table(agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio'))
+console.table(agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio'))
 
 // problema -> usuario proporcion id para libro, lo ideal es que sea automático y autoincremental
 // posible solución:
@@ -207,6 +207,8 @@ console.table(resultadosParaVista(resultados));
 
 console.table(resultadosParaVista(biblioteca));
 
+// ¡¿qué pasa con el libro que está prestado?
+
 const borrarLibro = id => {
 
     const libroEncontrado = encontrado(biblioteca, id)
@@ -216,11 +218,11 @@ const borrarLibro = id => {
         console.table(libroEncontrado);
 
         // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
-        let continuar = prompt(`❓  Desea continuar?... Ingrese si/no...`).toLowerCase().trim();
+        let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
 
         if (continuar === 'si') {
             const indice = biblioteca.indexOf(libroEncontrado);
-            if (indice !== -1) {
+            if (indice !== -1) { // si indece es -1 no se encontro el libro
                 biblioteca.splice(indice, 1);
             }
             console.log(`📖 Libro eliminado`);
