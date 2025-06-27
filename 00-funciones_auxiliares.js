@@ -28,6 +28,8 @@ const resultadosParaVista = datos => {
     }
 }
 
+const impresionTabla = elemento => console.table(transformarElemento(elemento));
+
 // Este objeto traduce la entrada del usuario a las claves reales del objeto libro
 const mapaCriterios = {
     'título': 'titulo',
@@ -43,6 +45,7 @@ module.exports = {
     encontrado,
     ultimoElemento,
     resultadosParaVista,
+    impresionTabla,
     mapaCriterios
 
 };
