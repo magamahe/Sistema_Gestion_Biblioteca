@@ -1,6 +1,6 @@
 /* Punto 6: Identificación Avanzada de Libros */
 
-const libros = require('./listaLibros.js');
+const libros = require('./01-lista_libros.js');
 
 function librosConPalabrasEnTitulo(){
     const resultado = libros

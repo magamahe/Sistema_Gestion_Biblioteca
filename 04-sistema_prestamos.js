@@ -1,7 +1,7 @@
 // PUNTO 4: Préstamos
 
-const libros = require('./listaLibros.js');
-const usuarios = require('./listaUsuarios.js');
+const libros = require('./01-lista_libros.js');
+const usuarios = require('./01-lista_usuarios.js');
 
 /* -------------------------------------------------------- 
 a) prestarLibro(idLibro, idUsuario)

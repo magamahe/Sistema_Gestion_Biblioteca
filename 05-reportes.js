@@ -1,7 +1,7 @@
 /* PUNTO 5: Reportes */
 
 
-const libros = require('./listaLibros.js');
+const libros = require('./01-lista_libros.js');
 
 function generarReporteLibros(){
     const totalLibros = libros.length; // calcula la cantidad total de libros existentes
