@@ -1,4 +1,4 @@
-/* 👥 PUNTO 3: Gestión de Usuarios */
+/* PUNTO 3: Gestión de Usuarios */
 
 // Importamos el array de usuarios desde un archivo externo.
 // Este array se compartirá entre todos los módulos que lo requieran.
@@ -114,8 +114,14 @@ function normalizarTexto(texto) {
     .normalize("NFD")                       // Descompone caracteres con acento (ej: á → a + ´)
     .replace(/[\u0300-\u036f]/g, "");       // Elimina los signos diacríticos (acentos)
 }
-
-
+function esEmailValido(email) {
+          const partes = email.split('@');
+          return (
+            partes.length === 2 &&
+            partes[0].length >= 8 &&
+            partes[1].includes('.')
+          );
+        }
 
 // Exportamos las funciones y el array para que puedan usarse en otros archivos del sistema.
 module.exports = {
@@ -124,5 +130,6 @@ module.exports = {
   buscarUsuario,
   solicitarEmailExistente,
   borrarUsuario,
+  esEmailValido,
   usuarios // exportado en caso de necesitarlo externamente
 };

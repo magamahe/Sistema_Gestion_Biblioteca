@@ -13,15 +13,24 @@ const {
   prestarLibro,
   devolverLibro,
   mostrarLibrosDisponibles
-} = require("./sistema_prestamos.js");
+} = require("./04-sistema_prestamos.js");
 
 const {
   registrarUsuario,
   mostrarTodosLosUsuarios,
   buscarUsuario,
   solicitarEmailExistente,
-  borrarUsuario
-} = require("./gestion_usuario");
+  borrarUsuario,
+  esEmailValido
+} = require("./03-gestion_usuario");
+
+const {
+  generarReporteLibros
+} = require("./05-reportes.js");
+
+const {
+  librosConPalabrasEnTitulo
+} = require ("./06-identificacion_libro.js");
 
 function menuPrincipal() {
   while (true) {
@@ -86,15 +95,6 @@ function menuPrincipal() {
       case 5:
         const nombre = prompt("🧑 Nombre:");
         let email = prompt("📧 Email:");
-
-        function esEmailValido(email) {
-          const partes = email.split('@');
-          return (
-            partes.length === 2 &&
-            partes[0].length >= 8 &&
-            partes[1].includes('.')
-          );
-        }
 
         while (!esEmailValido(email)) {
           console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después. Ejemplo: xxxxxxxx@xxx.com");
