@@ -76,36 +76,36 @@ function menuPrincipal() {
     switch (opcion) {
       case 1:
         agregarLibro(
-          parseInt(prompt("🔢 ID del libro:")),
-          prompt("📖 Título:"),
-          prompt("✍️ Autor:"),
-          parseInt(prompt("📅 Año:")),
-          prompt("🏷️ Género:")
+          parseInt(prompt("🔢 ID del libro: ")),
+          prompt("📖 Título: "),
+          prompt("✍️ Autor: "),
+          parseInt(prompt("📅 Año: ")),
+          prompt("🏷️ Género: ")
         );
         break;
 
       case 2:
-        const crit = prompt("🔍 Buscar por: ¿titulo, autor o genero?");
-        const val = prompt("🔎 Ingrese valor a buscar:");
+        const crit = prompt("🔍 Buscar por: ¿titulo, autor o genero? ");
+        const val = prompt("🔎 Ingrese valor a buscar: ");
         console.log(buscarLibro(crit, val));
         break;
 
       case 3:
-        const criterio = prompt("↕️ Ordenar por: titulo o anio");
+        const criterio = prompt("↕️ Ordenar por: titulo o año ");
         ordenarLibros(criterio);
         break;
 
       case 4:
-        borrarLibro(parseInt(prompt("🗑️ ID del libro a borrar:")));
+        borrarLibro(parseInt(prompt("🗑️ ID del libro a borrar: ")));
         break;
 
       case 5:
-        const nombre = prompt("🧑 Nombre:");
-        let email = prompt("📧 Email:");
+        const nombre = prompt("🧑 Nombre: ");
+        let email = prompt("📧 Email: ");
 
         while (!esEmailValido(email)) {
           console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después. Ejemplo: xxxxxxxx@xxx.com");
-          email = prompt("📧 Ingrese un email válido:");
+          email = prompt("📧 Ingrese un email válido: ");
         }
 
         registrarUsuario(nombre, email);
@@ -118,28 +118,28 @@ function menuPrincipal() {
       case 7:
         const usuario = solicitarEmailExistente(prompt);
         if (usuario) {
-          console.log("✅ Usuario encontrado:", usuario);
+          console.log("✅ Usuario encontrado: ", usuario);
         } else {
           console.log("↩️ Operación cancelada.");
         }
         break;
 
       case 8:
-        borrarUsuario(prompt("🧑 Nombre:"), prompt("📧 Email:"));
+        borrarUsuario(prompt("🧑 Nombre: "), prompt("📧 Email: "));
         break;
 
       case 9:
         mostrarLibrosDisponibles(libros);
         prestarLibro(
-          parseInt(prompt("📘 ID del libro:")),
-          parseInt(prompt("🧑 ID del usuario:"))
+          parseInt(prompt("📘 ID del libro: ")),
+          parseInt(prompt("🧑 ID del usuario: "))
         );
         break;
 
       case 10:
         devolverLibro(
-          parseInt(prompt("📘 ID del libro:")),
-          parseInt(prompt("🧑 ID del usuario:"))
+          parseInt(prompt("📘 ID del libro: ")),
+          parseInt(prompt("🧑 ID del usuario: "))
         );
         break;
 
