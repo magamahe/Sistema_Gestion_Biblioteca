@@ -54,22 +54,22 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
 }
 
 //prueba
-let libro1 = agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio');
-let libro2 = agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio')
+// let libro1 = agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio');
+// let libro2 = agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio')
 
 
 // Comprobamos si libro1 NO es null antes de intentar usarlo
-if (libro1) {
-    console.log("Datos del libro 1:");
-    console.table(resultadosParaVista(libro1));
-}
+// if (libro1) {
+//     console.log("Datos del libro 1:");
+//     console.table(resultadosParaVista(libro1));
+// }
 
 
 // Comprobamos si libro2 NO es null antes de intentar usarlo
-if (libro2) {
-    console.log("Datos del libro 2:");
-    console.table(resultadosParaVista(libro2));
-}
+// if (libro2) {
+//     console.log("Datos del libro 2:");
+//     console.table(resultadosParaVista(libro2));
+// }
 
 // problema -> usuario proporcion id para libro, lo ideal es que sea automático y autoincremental
 // posible solución:
@@ -105,7 +105,7 @@ if (libro2) {
 //     return nuevoLibro;
 // };
 
-console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla...
+// console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla...
 
 // b)- Crear una función buscarLibro(criterio, valor) que permita buscar libros por título, autor o género utilizando el algoritmo de búsqueda lineal.
 
@@ -146,7 +146,7 @@ const buscarLibro = (criterio, valor) => {
     return resultados;
 }
 
-buscarLibro('genero', 'NOVELA')
+// buscarLibro('genero', 'NOVELA')
 
 // c)- Desarrollar una función ordenarLibros(criterio) que ordene los libros por título o año utilizando el algoritmo de ordenamiento burbuja (bubble sort) y luego muestre los libros ordenados en la consola.
 
@@ -195,13 +195,13 @@ const ordenarLibros = criterio => {
     return copiaBiblioteca;
 }
 
-let resultadosPorTitulo = ordenarLibros('título');
-let resultadosPorAnio = ordenarLibros('año');
-let resultadosPorGenero = ordenarLibros('género')
+// let resultadosPorTitulo = ordenarLibros('título');
+// let resultadosPorAnio = ordenarLibros('año');
+// let resultadosPorGenero = ordenarLibros('género')
 
-console.table(resultadosParaVista(resultadosPorTitulo));
-console.table(resultadosParaVista(resultadosPorAnio));
-console.table(resultadosParaVista(resultadosPorGenero));
+// console.table(resultadosParaVista(resultadosPorTitulo));
+// console.table(resultadosParaVista(resultadosPorAnio));
+// console.table(resultadosParaVista(resultadosPorGenero));
 
 // d)- Desarrollar una función borrarLibro(id) que elimine el libro que se le pase por parámetro.
 
@@ -211,7 +211,7 @@ console.table(resultadosParaVista(resultadosPorGenero));
  * @returns {object} El objeto de la biblioteca con el libro eliminado
 */
 
-console.table(resultadosParaVista(biblioteca));
+// console.table(resultadosParaVista(biblioteca));
 
 // ¡¿qué pasa con el libro que está prestado?
 
@@ -244,7 +244,7 @@ const borrarLibro = id => {
     }
 }
 
-console.table(resultadosParaVista(borrarLibro(12)));
+// console.table(resultadosParaVista(borrarLibro(12)));
 
 module.exports = {
     agregarLibro,

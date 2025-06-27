@@ -7,7 +7,14 @@ Muestra un menú interactivo con prompt().
 
 const prompt = require("prompt-sync")();
 // const prestamos = require('./prestamos.js');
-const libros = require('./listaLibros.js');
+const libros = require('./01-lista_libros.js');
+
+const {
+     agregarLibro,
+    buscarLibro,
+    ordenarLibros,
+    borrarLibro
+} = require("./02-gestion_libro.js")
 
 const {
   prestarLibro,
