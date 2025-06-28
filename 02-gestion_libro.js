@@ -2,12 +2,12 @@
 const { encontrado,
         resultadosParaVista,
         mapaCriterios
-        } = require('./00-funciones_auxiliares.js');
+        } = require("./00-funciones_auxiliares.js");
 
 // llamada a prompt para interactuar con el usuario
-const prompt = require('prompt-sync')();
+const prompt = require("prompt-sync")();
 // importar array de libros
-const libros = require('./01-lista_libros.js');
+const libros = require("./01-lista_libros.js");
 // armar una copia del array original
 const biblioteca = [...libros];
 
@@ -54,8 +54,8 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
 }
 
 //prueba
-// let libro1 = agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio');
-// let libro2 = agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio')
+// let libro1 = agregarLibro(1, "Harry Potter", "stef", 2010, "misterio");
+// let libro2 = agregarLibro(12, "Harry Potter", "stef", 2010, "misterio")
 
 
 // Comprobamos si libro1 NO es null antes de intentar usarlo
@@ -99,7 +99,7 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
 //         genero
 //     };
 
-//     console.log('✅ Libro agregado con éxito:');
+//     console.log("✅ Libro agregado con éxito:");
 //     console.log(nuevoLibro);
 
 //     return nuevoLibro;
@@ -146,7 +146,7 @@ const buscarLibro = (criterio, valor) => {
     return resultados;
 }
 
-// buscarLibro('genero', 'NOVELA')
+// buscarLibro("genero", "NOVELA")
 
 // c)- Desarrollar una función ordenarLibros(criterio) que ordene los libros por título o año utilizando el algoritmo de ordenamiento burbuja (bubble sort) y luego muestre los libros ordenados en la consola.
 
@@ -195,9 +195,9 @@ const ordenarLibros = criterio => {
     return copiaBiblioteca;
 }
 
-// let resultadosPorTitulo = ordenarLibros('título');
-// let resultadosPorAnio = ordenarLibros('año');
-// let resultadosPorGenero = ordenarLibros('género')
+// let resultadosPorTitulo = ordenarLibros("título");
+// let resultadosPorAnio = ordenarLibros("año");
+// let resultadosPorGenero = ordenarLibros("género")
 
 // console.table(resultadosParaVista(resultadosPorTitulo));
 // console.table(resultadosParaVista(resultadosPorAnio));
@@ -226,7 +226,7 @@ const borrarLibro = id => {
         // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
         let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
 
-        if (continuar === 'si') {
+        if (continuar === "si") {
             const indice = biblioteca.indexOf(libroEncontrado);
             if (indice !== -1) { // si indice es -1 no se encontro el libro
                 biblioteca.splice(indice, 1);

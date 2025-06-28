@@ -32,12 +32,12 @@ const impresionTabla = elemento => console.table(transformarElemento(elemento));
 
 // Este objeto traduce la entrada del usuario a las claves reales del objeto libro
 const mapaCriterios = {
-    'título': 'titulo',
-    'titulo': 'titulo',
-    'autor': 'autor',
-    'género': 'genero',
-    'genero': 'genero',
-    'año': 'anio'
+    "título": "titulo",
+    "titulo": "titulo",
+    "autor": "autor",
+    "género": "genero",
+    "genero": "genero",
+    "año": "anio"
 };
 
 //exportación para que puedan emplearse en otros archivos
