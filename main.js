@@ -39,6 +39,10 @@ const {
   librosConPalabrasEnTitulo
 } = require ("./06-identificacion_libro.js");
 
+const {
+  calcularEstadisticas
+} = require("./07-calculos_estadisticos.js")
+
 function menuPrincipal() {
   while (true) {
     const entrada = prompt(
