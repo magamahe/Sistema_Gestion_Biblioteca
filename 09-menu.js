@@ -145,7 +145,7 @@ function menuPrincipal() {
         const usuario = solicitarEmailExistente(prompt);
         if (usuario) {
           console.log("✅  Usuario encontrado: ");
-          impresionTablaUsuario(usuario);
+          impresionTablaUsuario(usuario, biblioteca);
         } else {
           console.log("↩️  Operación cancelada.");
         }
@@ -176,11 +176,12 @@ function menuPrincipal() {
         break;
 
       case 12:
-        librosConPalabrasEnTitulo();
+        const titulosLargos = librosConPalabrasEnTitulo();
+        console.table(titulosLargos);
         break;
 
       case 13:
-        const estadisticasLibros = calcularEstadisticas(libros);
+        const estadisticasLibros = calcularEstadisticas(biblioteca);
 
         console.log("📊 ESTADÍSTICAS DE LA BIBLIOTECA 📊");
         console.log("=====================================");
@@ -192,7 +193,7 @@ function menuPrincipal() {
         console.log("\n📖 Diferencia de años entre el libro más antiguo y el más nuevo:");
         console.log(`${estadisticasLibros.diferenciaAnios}`);
         console.log("\n📚 Conteo de libros por año:");
-        impresionTablaLibro(estadisticasLibros.anioMasFrecuente);
+        console.table(estadisticasLibros.tablaFrecuenciaAnios);
         break;
 
       case 14:
@@ -200,7 +201,7 @@ function menuPrincipal() {
         const usuariosNormalizados = normalizarDatos(usuarios);
 
         impresionTablaLibro(librosNormalizados);
-        impresionTablaUsuario(usuariosNormalizados);
+        impresionTablaUsuario(usuariosNormalizados, librosNormalizados);
         break;
 
       case 0:
