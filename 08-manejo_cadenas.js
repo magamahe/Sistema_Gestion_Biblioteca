@@ -1,10 +1,3 @@
-const usuarios = require("./01-lista_usuarios");
-const libros = require("./01-lista_libros");
-
-const { impresionTablaLibro,
-        impresionTablaUsuario 
-    } = require("./00-funciones_auxiliares");
-
 // Punto 8: Manejo de cadenas
 
 // a)- Crear una función normalizarDatos() que utilice métodos de strings para:
