@@ -47,7 +47,8 @@ const agregarLibro = (titulo, autor, anio, genero) => {
         titulo,
         autor,
         anio,
-        genero
+        genero,
+        disponible: true
     };
 
     //Revisar que nuevoLibro no esté duplicado en Biblioteca
