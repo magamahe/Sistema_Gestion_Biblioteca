@@ -78,21 +78,6 @@ const calcularEstadisticas = (array) => {
     }
 }
 
-const estadisticasLibros = calcularEstadisticas(libros);
-
-// Mostramos los resultados
-// console.log("📊 ESTADÍSTICAS DE LA BIBLIOTECA 📊");
-// console.log("=====================================");
-// console.log(`Año de publicación promedio: ${estadisticasLibros.anioPromedio}`);
-// console.log("\n📖 Libro más antiguo:");
-// console.table(estadisticasLibros.libroMasAntiguo);
-// console.log("\n📖 Libro más nuevo:");
-// console.table(estadisticasLibros.libroMasNuevo);
-// console.log("\n📖 Diferencia de años entre el libro más antiguo y el más nuevo:");
-// console.log(`${estadisticasLibros.diferenciaAnios}`);
-// console.log("\n📚 Conteo de libros por año:");
-// console.table(estadisticasLibros.anioMasFrecuente);
-
 module.exports = {
     calcularEstadisticas
 }

@@ -7,20 +7,21 @@ Muestra un menú interactivo con prompt().
 
 const prompt = require("prompt-sync")();
 // const prestamos = require('./prestamos.js');
-const libros = require('./01-lista_libros.js');
 
 const {
-     agregarLibro,
-    buscarLibro,
-    ordenarLibros,
-    borrarLibro
-} = require("./02-gestion_libro.js")
+  impresionTablaUsuario,
+  impresionTablaLibro,
+} = require("./00-funciones_auxiliares.js");
+
+const libros = require("./01-lista_libros.js");
+const usuarios = require("./01-lista_usuarios.js")
 
 const {
-  prestarLibro,
-  devolverLibro,
-  mostrarLibrosDisponibles
-} = require("./04-sistema_prestamos.js");
+  agregarLibro,
+  buscarLibro,
+  ordenarLibros,
+  borrarLibro
+} = require("./02-gestion_libro.js");
 
 const {
   registrarUsuario,
@@ -32,12 +33,18 @@ const {
 } = require("./03-gestion_usuario");
 
 const {
+  prestarLibro,
+  devolverLibro,
+  mostrarLibrosDisponibles
+} = require("./04-sistema_prestamos.js");
+
+const {
   generarReporteLibros
 } = require("./05-reportes.js");
 
 const {
   librosConPalabrasEnTitulo
-} = require ("./06-identificacion_libro.js");
+} = require("./06-identificacion_libro.js");
 
 const {
   calcularEstadisticas
@@ -50,7 +57,7 @@ const {
 function menuPrincipal() {
   while (true) {
     const entrada = prompt(
-`📚✨ === SISTEMA DE BIBLIOTECA === ✨📚
+      `📚✨ === SISTEMA DE BIBLIOTECA === ✨📚
   
      ✨ === MENU PRINCIPAL === ✨
        - Seleccione una opción -
@@ -160,11 +167,27 @@ function menuPrincipal() {
         break;
 
       case 13:
-        calcularEstadisticas();
+        const estadisticasLibros = calcularEstadisticas(libros);
+
+        console.log("📊 ESTADÍSTICAS DE LA BIBLIOTECA 📊");
+        console.log("=====================================");
+        console.log(`Año de publicación promedio: ${estadisticasLibros.anioPromedio}`);
+        console.log("\n📖 Libro más antiguo:");
+        console.table(estadisticasLibros.libroMasAntiguo);
+        console.log("\n📖 Libro más nuevo:");
+        console.table(estadisticasLibros.libroMasNuevo);
+        console.log("\n📖 Diferencia de años entre el libro más antiguo y el más nuevo:");
+        console.log(`${estadisticasLibros.diferenciaAnios}`);
+        console.log("\n📚 Conteo de libros por año:");
+        console.table(estadisticasLibros.anioMasFrecuente);
         break;
 
       case 14:
-        normalizarDatos();
+        const librosNormalizados = normalizarDatos(libros);
+        const usuariosNormalizados = normalizarDatos(usuarios);
+
+        impresionTablaLibro(librosNormalizados);
+        impresionTablaUsuario(usuariosNormalizados);
         break;
 
       case 0:

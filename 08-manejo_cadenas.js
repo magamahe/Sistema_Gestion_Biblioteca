@@ -38,13 +38,6 @@ const normalizarDatos = (array) => {
     })
 }
 
-//prueba
-// const librosNormalizados = normalizarDatos(libros);
-// const usuariosNormalizados = normalizarDatos(usuarios);
-
-// impresionTablaLibro(librosNormalizados)
-// impresionTablaUsuario(usuariosNormalizados)
-
 module.exports = {
     normalizarDatos
-}
+};
