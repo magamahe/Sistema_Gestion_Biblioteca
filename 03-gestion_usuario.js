@@ -57,7 +57,7 @@ Devuelve el array completo de usuarios.
 // Es útil para tener una vista ordenada desde la consola.
 function mostrarTodosLosUsuarios(arrayDeLibros) {
   console.log("�✨ === USUARIOS DE LA BIBLIOTECA === ✨�")
-  impresionUsuariosConDetalle (usuarios, arrayDeLibros);
+ impresionTablaUsuario (usuarios, arrayDeLibros);
   return true;
 }
 
