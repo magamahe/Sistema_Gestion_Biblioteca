@@ -131,5 +131,5 @@ module.exports = {
   solicitarEmailExistente,
   borrarUsuario,
   esEmailValido,
-  usuarios // exportado en caso de necesitarlo externamente
+  //usuarios // exportado en caso de necesitarlo externamente
 };
