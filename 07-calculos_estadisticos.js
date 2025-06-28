@@ -1,4 +1,6 @@
-const {resultadosParaVista} = require("./00-funciones_auxiliares");
+const { 
+    resultadosParaVistaLibros 
+    } = require("./00-funciones_auxiliares");
 
 // Punto 7: Cálculos estadísticos
 
@@ -26,7 +28,7 @@ const calcularEstadisticas = (array) => {
 
     const valorActual = {
         sumaAnios : 0,
-        conteoDeAnios: {},
+        frecuenciaAnios: {},
         libroMasAntiguo: array[0],
         libroMasNuevo: array[0],
         diferencia: 0
@@ -48,7 +50,7 @@ const calcularEstadisticas = (array) => {
 
         //contar los libros por año
         const anio = elemento.anio;
-        acumulador.conteoDeAnios[anio] = (acumulador.conteoDeAnios[anio] || 0) + 1; 
+        acumulador.frecuenciaAnios[anio] = (acumulador.frecuenciaAnios[anio] || 0) + 1; 
 
         return acumulador
     }, valorActual);
@@ -60,7 +62,7 @@ const calcularEstadisticas = (array) => {
     const diferenciaAnios = estadisticas.libroMasNuevo.anio - estadisticas.libroMasAntiguo.anio;
 
      // Año más frecuente
-    const conteoDeAnios = estadisticasCrudas.frecuenciaAnios;
+    const conteoDeAnios = estadisticas.frecuenciaAnios;
     // Object.keys(conteoDeAnios) da un array
     const anioMasFrecuente = Object.keys(conteoDeAnios).reduce((a, b) => 
         // Comparar la frecuencia del año 'a' con la del año 'b' y quedarse con el de mayor frecuencia... si hay empate devuelve el último
@@ -70,8 +72,8 @@ const calcularEstadisticas = (array) => {
     return {
         anioPromedio : anioPromedio,
         anioMasFrecuente: parseInt(anioMasFrecuente),
-        libroMasAntiguo : resultadosParaVista(estadisticas.libroMasAntiguo),
-        libroMasNuevo : resultadosParaVista(estadisticas.libroMasNuevo),
+        libroMasAntiguo : resultadosParaVistaLibros(estadisticas.libroMasAntiguo),
+        libroMasNuevo : resultadosParaVistaLibros(estadisticas.libroMasNuevo),
         diferenciaAnios: diferenciaAnios
     }
 }
