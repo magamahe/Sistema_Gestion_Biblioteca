@@ -1,6 +1,6 @@
 // importación de funciones auxiliares 
 const { encontrado,
-        resultadosParaVista,
+        resultadosParaVistaLibros,
         mapaCriterios
         } = require("./00-funciones_auxiliares.js");
 
@@ -221,7 +221,7 @@ const borrarLibro = id => {
 
     if (libroEncontrado) {
         console.log(`✅ Libro encontrado:`);
-        console.table(resultadosParaVista(libroEncontrado));
+        console.table(resultadosParaVistaLibros(libroEncontrado));
 
         // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
         let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
