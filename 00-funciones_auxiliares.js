@@ -54,7 +54,7 @@ const transformarUsuario = (elemento, arrayDeLibros) => {
 
         // Por si un ID de libro prestado no se encuentra
         return `Libro ID ${id} no encontrado`;
-    }).join('\n')  // cada libro ocupa una linea
+    }).join(' - ')  // cada libro ocupa una linea
 
     //devolvemos objeto libro
     return {
