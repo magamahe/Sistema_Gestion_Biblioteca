@@ -1,7 +1,3 @@
-const { 
-    resultadosParaVistaLibros 
-    } = require("./00-funciones_auxiliares");
-
 // Punto 7: Cálculos estadísticos
 
 // a)- Desarrollar una función calcularEstadisticas() que utilice el objeto Math para calcular y mostrar:
@@ -9,15 +5,15 @@ const {
 //  ✔Año de publicación más frecuente.
 //  ✔Diferencia en años entre el libro más antiguo y el más nuevo.
 
-const libros = require("./01-lista_libros");
+// const biblioteca = require("./02-gestion_libro");
 
 const calcularEstadisticas = (array) => {
     // ver si hay libros en la biblioteca
-    if (array.length === 0 ) {
+    if (array.length === 0) {
         return {
-            totalLibros : 0,
-            anioPromedio : 0,
-            anioMasFrecuente: 0,
+            totalLibros: 0,
+            anioPromedio: 0,
+            tablaFrecuenciaAnios: [],
             libroMasAntiguo: null,
             libroMasNuevo: null,
             diferencia: 0
@@ -27,11 +23,10 @@ const calcularEstadisticas = (array) => {
     //Promedio de año de publicacion -> sumar todos los años y dividir por cantidad de libros
 
     const valorActual = {
-        sumaAnios : 0,
+        sumaAnios: 0,
         frecuenciaAnios: {},
         libroMasAntiguo: array[0],
         libroMasNuevo: array[0],
-        diferencia: 0
     }
 
     const estadisticas = array.reduce((acumulador, elemento) => {
@@ -50,7 +45,7 @@ const calcularEstadisticas = (array) => {
 
         //contar los libros por año
         const anio = elemento.anio;
-        acumulador.frecuenciaAnios[anio] = (acumulador.frecuenciaAnios[anio] || 0) + 1; 
+        acumulador.frecuenciaAnios[anio] = (acumulador.frecuenciaAnios[anio] || 0) + 1;
 
         return acumulador
     }, valorActual);
@@ -61,19 +56,22 @@ const calcularEstadisticas = (array) => {
     // diferencia de años
     const diferenciaAnios = estadisticas.libroMasNuevo.anio - estadisticas.libroMasAntiguo.anio;
 
-     // Año más frecuente
+    // Año más frecuente
     const conteoDeAnios = estadisticas.frecuenciaAnios;
-    // Object.keys(conteoDeAnios) da un array
-    const anioMasFrecuente = Object.keys(conteoDeAnios).reduce((a, b) => 
-        // Comparar la frecuencia del año 'a' con la del año 'b' y quedarse con el de mayor frecuencia... si hay empate devuelve el último
-        conteoDeAnios[a] > conteoDeAnios[b] ? a : b
-    );
+
+    const tablaDeFrecuencias = Object.keys(conteoDeAnios).map(anio => ({
+        'Año de Publicación': parseInt(anio), // Convertimos la clave (string) a número
+        'Cantidad de Libros': conteoDeAnios[anio] // Este es el valor (conteo)
+    }));
+
+    // Ordenamos la tabla para que los años con más libros aparezcan primero.
+    tablaDeFrecuencias.sort((a, b) => b['Cantidad de Libros'] - a['Cantidad de Libros']);
 
     return {
-        anioPromedio : anioPromedio,
-        anioMasFrecuente: parseInt(anioMasFrecuente),
-        libroMasAntiguo : resultadosParaVistaLibros(estadisticas.libroMasAntiguo),
-        libroMasNuevo : resultadosParaVistaLibros(estadisticas.libroMasNuevo),
+        anioPromedio: anioPromedio,
+        tablaFrecuenciaAnios: tablaDeFrecuencias,
+        libroMasAntiguo: estadisticas.libroMasAntiguo,
+        libroMasNuevo: estadisticas.libroMasNuevo,
         diferenciaAnios: diferenciaAnios
     }
 }
