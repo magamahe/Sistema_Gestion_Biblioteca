@@ -2,6 +2,7 @@
 
 const libros = require("./01-lista_libros.js");
 const usuarios = require("./01-lista_usuarios.js");
+const { biblioteca } = require("./02-gestion_libro.js");
 
 /* -------------------------------------------------------- 
 a) prestarLibro(idLibro, idUsuario)
@@ -10,7 +11,7 @@ Marca el libro como no disponible y lo asigna al usuario.
 
 function prestarLibro(idLibro, idUsuario) {
   
-  const libro = libros.find(l => l.id == idLibro); // Busca el libro por ID en el array de libros
+  const libro = biblioteca.find(l => l.id == idLibro); // Busca el libro por ID en el array de libros
   const usuario = usuarios.find(u => u.id == idUsuario);// Busca el usuario por ID en el array de usuarios
 
   // Verifica que el libro y el usuario existan, y que el libro esté disponible
@@ -32,7 +33,7 @@ Marca el libro como disponible y lo remueve de los libros prestados del usuario.
 
 function devolverLibro(idLibro, idUsuario) {
   
-  const libro = libros.find(l => l.id === idLibro);// Busca el libro por su ID en el array de libros
+  const libro = biblioteca.find(l => l.id === idLibro);// Busca el libro por su ID en el array de libros
   const usuario = usuarios.find(u => u.id === idUsuario);   // Busca el usuario por su ID en el array de usuarios
 
   // Verifica que el libro y el usuario existan, y que el libro esté actualmente prestado
@@ -50,9 +51,9 @@ function devolverLibro(idLibro, idUsuario) {
 /* -----------------------------------------------------------------------------------------------
 Funcion utilizada para mostrar los libros disponibles al momento de hacer el prestamo */
 
-function mostrarLibrosDisponibles(libros) {
-  const disponibles = libros.filter(libro => libro.disponible);
-  console.table(disponibles, ["id", "titulo", "autor", "anio"]); // Muestra solo algunas columnas
+function mostrarLibrosDisponibles(biblioteca) {
+  const disponibles = biblioteca.filter(libro => libro.disponible);
+  return disponibles;
 }
 
 

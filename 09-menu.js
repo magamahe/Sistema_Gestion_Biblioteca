@@ -156,7 +156,8 @@ function menuPrincipal() {
         break;
 
       case 9:
-        mostrarLibrosDisponibles(biblioteca);
+        const librosDisponibles = mostrarLibrosDisponibles(biblioteca);
+        impresionTablaLibro(librosDisponibles);
         prestarLibro(
           parseInt(prompt("📘 ID del libro: ")),
           parseInt(prompt("🧑 ID del usuario: "))
