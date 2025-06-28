@@ -138,15 +138,16 @@ function menuPrincipal() {
         break;
 
       case 6:
-        mostrarTodosLosUsuarios();
+        mostrarTodosLosUsuarios(biblioteca);
         break;
 
       case 7:
         const usuario = solicitarEmailExistente(prompt);
         if (usuario) {
-          console.log("✅ Usuario encontrado: ", usuario);
+          console.log("✅  Usuario encontrado: ");
+          impresionTablaUsuario(usuario);
         } else {
-          console.log("↩️ Operación cancelada.");
+          console.log("↩️  Operación cancelada.");
         }
         break;
 
@@ -155,7 +156,7 @@ function menuPrincipal() {
         break;
 
       case 9:
-        mostrarLibrosDisponibles(libros);
+        mostrarLibrosDisponibles(biblioteca);
         prestarLibro(
           parseInt(prompt("📘 ID del libro: ")),
           parseInt(prompt("🧑 ID del usuario: "))

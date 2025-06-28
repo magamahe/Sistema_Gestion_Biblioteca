@@ -1,5 +1,11 @@
 /* PUNTO 3: Gestión de Usuarios */
 
+//importación de función auxiliar para imprimir tabla usuario
+const {
+  impresionTablaUsuario,
+  impresionUsuariosConDetalle
+} = require("./00-funciones_auxiliares.js")
+
 // Importamos el array de usuarios desde un archivo externo.
 // Este array se compartirá entre todos los módulos que lo requieran.
 const usuarios = require("./01-lista_usuarios.js");
@@ -33,11 +39,12 @@ function registrarUsuario(nombre, email) {
   };
   usuarios.push(nuevoUsuario); // Agrega el nuevo usuario al array global con datos iniciales
   //console.log(`\n✅ Usuario registrado correctamente:  \n- ID= ${nuevoId} \n- Nombre= ${nombre}  \n- Email= ${email} `);   // Muestra mensaje de éxito
-  console.table({
-    ID: nuevoUsuario.id,
-    Nombre: nuevoUsuario.nombre,
-    Email: nuevoUsuario.email
-  });
+  // console.table({
+  //   ID: nuevoUsuario.id,
+  //   Nombre: nuevoUsuario.nombre,
+  //   Email: nuevoUsuario.email
+  // });
+  impresionTablaUsuario(nuevoUsuario);
   return true;
 }
 
@@ -48,9 +55,9 @@ Devuelve el array completo de usuarios.
 
 // 📋 Muestra todos los usuarios registrados en formato de tabla.
 // Es útil para tener una vista ordenada desde la consola.
-function mostrarTodosLosUsuarios() {
+function mostrarTodosLosUsuarios(arrayDeLibros) {
   console.log("�✨ === USUARIOS DE LA BIBLIOTECA === ✨�")
-  console.table(usuarios);
+  impresionUsuariosConDetalle (usuarios, arrayDeLibros);
   return true;
 }
 
@@ -72,14 +79,14 @@ function buscarUsuario(email) {
 // Permite cancelar escribiendo 'salir'.
 
 function solicitarEmailExistente(prompt) {
-  let email = prompt("📧 Ingrese email:");// Solicita al usuario que ingrese un email
+  let email = prompt("📧 Ingrese email: ");// Solicita al usuario que ingrese un email
   let usuario = buscarUsuario(email); // Busca si ese email existe en el sistema
 
   // Mientras no se encuentre un usuario con ese email...
   while (!usuario) {
     console.log("❌ Email no registrado.");
 
-    email = prompt("📧 Ingrese un email válido o escriba 'salir' para cancelar:"); // Vuelve a pedir el email
+    email = prompt("📧 Ingrese un email válido o escriba 'salir' para cancelar: "); // Vuelve a pedir el email
     
     if (email.toLowerCase() === 'salir') { // Si el usuario escribe "salir", se cancela la operación
       return null;
@@ -116,11 +123,12 @@ function borrarUsuario(nombre, email) {
   console.log("=========================================");
   console.log("✅✅ Usuario borrado correctamente:✅✅");
   // Mostrar solo campos clave en tabla (sin índice extra)
-  console.table({
-    id: usuarioBorrado.id,
-    nombre: usuarioBorrado.nombre,
-    email: usuarioBorrado.email
-  });
+  // console.table({
+  //   id: usuarioBorrado.id,
+  //   nombre: usuarioBorrado.nombre,
+  //   email: usuarioBorrado.email
+  // });
+  impresionTablaUsuario(usuarioBorrado);
   console.log("=========================================");
 
   return true;
