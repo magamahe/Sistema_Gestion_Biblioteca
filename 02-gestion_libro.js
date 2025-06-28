@@ -1,14 +1,19 @@
-const prompt = require('prompt-sync')();
+// importación de funciones auxiliares 
+const { encontrado,
+        resultadosParaVistaLibros,
+        mapaCriterios
+        } = require("./00-funciones_auxiliares.js");
+
+// llamada a prompt para interactuar con el usuario
+const prompt = require("prompt-sync")();
+// importar array de libros
+const libros = require("./01-lista_libros.js");
+// armar una copia del array original
+const biblioteca = [...libros];
 
 // Punto 2: Funciones de gestión de libros
 
 // a)- Implementar una función agregarLibro(id, titulo, autor, anio, genero) que agregue un nuevo libro al array libros.
-
-// importar array de libros
-const { libros } = require('./listaLibros.js')
-
-// armar una copia del array original
-let biblioteca = [...libros];
 
 /**
  * Agrega un nuevo libro a la biblioteca
@@ -20,18 +25,12 @@ let biblioteca = [...libros];
  * @returns {object} El objeto del libro recién creado.
  */
 
-// crear una función auxiliar para buscar por ID
-const encontrado = (array, id) => array.find(elemento => elemento.id === id);
-
-// crear una función para mostrar último elemento -> indicar al usuario cual es el último id
-// const ultimoElemento = array => array[array.length - 1];
-
-// funcion que agrega libro 
+// función que agrega libro 
 const agregarLibro = (id, titulo, autor, anio, genero) => {
 
-    // ver lo de las tildes en las claves
+    //si el libro no es encontrado, se lo agrega a la biblioteca
     if (!encontrado(biblioteca, id)) {
-
+        // se crea una variable con el objeto que tiene todas las propiedades del libro y las recibe de los parametros
         let nuevoLibro = {
             id: id,
             titulo: titulo,
@@ -41,6 +40,7 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
             disponible: true
         }
 
+        //se agrega al array biblioteca
         biblioteca.push(nuevoLibro);
 
         console.log(`✅ El libro ha sido agregado con éxito`);
@@ -54,8 +54,22 @@ const agregarLibro = (id, titulo, autor, anio, genero) => {
 }
 
 //prueba
-agregarLibro(1, 'Harry Potter', 'stef', 2010, 'misterio');
-agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio');
+// let libro1 = agregarLibro(1, "Harry Potter", "stef", 2010, "misterio");
+// let libro2 = agregarLibro(12, "Harry Potter", "stef", 2010, "misterio")
+
+
+// Comprobamos si libro1 NO es null antes de intentar usarlo
+// if (libro1) {
+//     console.log("Datos del libro 1:");
+//     console.table(resultadosParaVista(libro1));
+// }
+
+
+// Comprobamos si libro2 NO es null antes de intentar usarlo
+// if (libro2) {
+//     console.log("Datos del libro 2:");
+//     console.table(resultadosParaVista(libro2));
+// }
 
 // problema -> usuario proporcion id para libro, lo ideal es que sea automático y autoincremental
 // posible solución:
@@ -85,23 +99,13 @@ agregarLibro(12, 'Harry Potter', 'stef', 2010, 'misterio');
 //         genero
 //     };
 
-//     console.log('✅ Libro agregado con éxito:');
+//     console.log("✅ Libro agregado con éxito:");
 //     console.log(nuevoLibro);
 
 //     return nuevoLibro;
 // };
 
-// funcion para formateo de titulo, anio, genero en impresión de pantalla
-
-const resultadosParaVista = array => array.map(elemento => ({
-    ID: elemento.id,
-    Título: elemento.titulo,
-    Autor: elemento.autor,
-    Año: elemento.anio,
-    Género: elemento.genero
-}));
-
-console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla...
+// console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla...
 
 // b)- Crear una función buscarLibro(criterio, valor) que permita buscar libros por título, autor o género utilizando el algoritmo de búsqueda lineal.
 
@@ -112,21 +116,13 @@ console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla..
  * @returns {Array<object>|null} Lista de libros que coinciden con criterio y valor o null si no hay coincidencia
  */
 
-// Este objeto traduce la entrada del usuario a las claves reales del objeto libro
-const mapaCriterios = {
-    'titulo': 'titulo',
-    'autor': 'autor',
-    'genero': 'genero',
-    'año': 'anio'
-};
-
 const buscarLibro = (criterio, valor) => {
     const criterioNormalizado = criterio.trim().toLowerCase();
 
     const claveInterna = mapaCriterios[criterioNormalizado];
 
     if (!claveInterna) {
-        console.error(`❌ Error: Criterio de búsqueda inválido: "${criterio}". Criterios válidos: ${criteriosValidos.join(', ')}.`);
+        console.error(`❌ Error: Criterio de búsqueda inválido: "${criterio}".`);
         return null; // corta la ejecución
     }
 
@@ -150,7 +146,7 @@ const buscarLibro = (criterio, valor) => {
     return resultados;
 }
 
-buscarLibro('genero', 'NOVELA')
+// buscarLibro("genero", "NOVELA")
 
 // c)- Desarrollar una función ordenarLibros(criterio) que ordene los libros por título o año utilizando el algoritmo de ordenamiento burbuja (bubble sort) y luego muestre los libros ordenados en la consola.
 
@@ -166,7 +162,7 @@ const ordenarLibros = criterio => {
     const claveInterna = mapaCriterios[criterioNormalizado];
 
     if (!claveInterna) {
-        console.error(`❌ Error: Criterio de ordenamiento inválido: "${criterio}". Criterios válidos: ${criteriosValidos.join(', ')}.`);
+        console.error(`❌ Error: Criterio de ordenamiento inválido: "${criterio}".`);
         return null; // corta la ejecución
     }
 
@@ -199,13 +195,25 @@ const ordenarLibros = criterio => {
     return copiaBiblioteca;
 }
 
-let resultados = ordenarLibros('titulo');
+// let resultadosPorTitulo = ordenarLibros("título");
+// let resultadosPorAnio = ordenarLibros("año");
+// let resultadosPorGenero = ordenarLibros("género")
 
-console.table(resultadosParaVista(resultados));
+// console.table(resultadosParaVista(resultadosPorTitulo));
+// console.table(resultadosParaVista(resultadosPorAnio));
+// console.table(resultadosParaVista(resultadosPorGenero));
 
 // d)- Desarrollar una función borrarLibro(id) que elimine el libro que se le pase por parámetro.
 
-console.table(resultadosParaVista(biblioteca));
+/**
+ * Agrega un nuevo libro a la biblioteca
+ * @param {number} id - El id del libro.
+ * @returns {object} El objeto de la biblioteca con el libro eliminado
+*/
+
+// console.table(resultadosParaVista(biblioteca));
+
+// ¡¿qué pasa con el libro que está prestado?
 
 const borrarLibro = id => {
 
@@ -213,17 +221,17 @@ const borrarLibro = id => {
 
     if (libroEncontrado) {
         console.log(`✅ Libro encontrado:`);
-        console.table(libroEncontrado);
+        console.table(resultadosParaVistaLibros(libroEncontrado));
 
         // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
-        let continuar = prompt(`❓  Desea continuar?... Ingrese si/no...`).toLowerCase().trim();
+        let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
 
-        if (continuar === 'si') {
+        if (continuar === "si") {
             const indice = biblioteca.indexOf(libroEncontrado);
-            if (indice !== -1) {
+            if (indice !== -1) { // si indice es -1 no se encontro el libro
                 biblioteca.splice(indice, 1);
             }
-            console.log(`📖 Libro eliminado`);
+            console.log(`⚠️  Libro eliminado`);
             
             return biblioteca;
         } else {
@@ -236,5 +244,11 @@ const borrarLibro = id => {
     }
 }
 
-// console.log(borrarLibro(12));
-console.table(resultadosParaVista(borrarLibro(12)));
+// console.table(resultadosParaVista(borrarLibro(12)));
+
+module.exports = {
+    agregarLibro,
+    buscarLibro,
+    ordenarLibros,
+    borrarLibro
+}

@@ -1,7 +1,7 @@
 // PUNTO 4: Préstamos
 
-const libros = require('./listaLibros.js');
-const usuarios = require('./listaUsuarios.js');
+const libros = require("./01-lista_libros.js");
+const usuarios = require("./01-lista_usuarios.js");
 
 /* -------------------------------------------------------- 
 a) prestarLibro(idLibro, idUsuario)
@@ -52,7 +52,7 @@ Funcion utilizada para mostrar los libros disponibles al momento de hacer el pre
 
 function mostrarLibrosDisponibles(libros) {
   const disponibles = libros.filter(libro => libro.disponible);
-  console.table(disponibles, ['id', 'título', 'autor', 'año']); // Muestra solo algunas columnas
+  console.table(disponibles, ["id", "título", "autor", "año"]); // Muestra solo algunas columnas
 }
 
 

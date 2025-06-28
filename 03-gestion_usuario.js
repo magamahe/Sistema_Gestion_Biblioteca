@@ -2,7 +2,7 @@
 
 // Importamos el array de usuarios desde un archivo externo.
 // Este array se compartirá entre todos los módulos que lo requieran.
-const usuarios = require('./listaUsuarios.js');
+const usuarios = require("./01-lista_usuarios.js");
 
 /* ---------------------------------------------------
 a) registrarUsuario(nombre, email)
