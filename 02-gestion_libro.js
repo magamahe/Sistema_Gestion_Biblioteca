@@ -1,7 +1,8 @@
 // importación de funciones auxiliares 
 const { encontrado,
     resultadosParaVistaLibros,
-    mapaCriterios
+    mapaCriterios,
+    impresionTablaLibro
 } = require("./00-funciones_auxiliares.js");
 
 // llamada a prompt para interactuar con el usuario
@@ -99,7 +100,7 @@ const buscarLibro = (criterio, valor) => {
 
     if (resultados.length > 0) {
         console.log(`✅ Se encontraron ${resultados.length} libro(s) de ${criterio} con el valor ${valor}:`)
-        console.table(resultadosParaVistaLibros(resultados))
+        impresionTablaLibro(resultados);
     } else {
         console.log(`⚠️  No se encontraron libros del ${criterio} con el valor ${valor}.`);
     }
@@ -154,14 +155,6 @@ const ordenarLibros = criterio => {
     return copiaBiblioteca;
 }
 
-// let resultadosPorTitulo = ordenarLibros("título");
-// let resultadosPorAnio = ordenarLibros("año");
-// let resultadosPorGenero = ordenarLibros("género")
-
-// console.table(resultadosParaVista(resultadosPorTitulo));
-// console.table(resultadosParaVista(resultadosPorAnio));
-// console.table(resultadosParaVista(resultadosPorGenero));
-
 // d)- Desarrollar una función borrarLibro(id) que elimine el libro que se le pase por parámetro.
 
 /**
@@ -170,31 +163,39 @@ const ordenarLibros = criterio => {
  * @returns {object} El objeto de la biblioteca con el libro eliminado
 */
 
-// console.table(resultadosParaVista(biblioteca));
-
 // ¡¿qué pasa con el libro que está prestado?
 
 const borrarLibro = id => {
+
+    impresionTablaLibro(biblioteca);
 
     const libroEncontrado = encontrado(biblioteca, id)
 
     if (libroEncontrado) {
         console.log(`✅ Libro encontrado:`);
-        console.table(resultadosParaVistaLibros(libroEncontrado));
+        impresionTablaLibro(libroEncontrado);
 
-        // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
-        let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
+        if (libroEncontrado.disponible) {
+            // ¿preguntar al usuario si desea seguir? -> mostrar advertencia de que borrado es permanente
+            let continuar = prompt(`❓  Desea continuar?... Ingrese si/no... `).toLowerCase().trim();
 
-        if (continuar === "si") {
-            const indice = biblioteca.indexOf(libroEncontrado);
-            if (indice !== -1) { // si indice es -1 no se encontro el libro
-                biblioteca.splice(indice, 1);
+
+            if (continuar === "si") {
+                const indice = biblioteca.indexOf(libroEncontrado);
+                if (indice !== -1) { // si indice es -1 no se encontro el libro
+                    biblioteca.splice(indice, 1);
+                }
+                console.log(`⚠️  Libro eliminado`);
+                impresionTablaLibro(biblioteca);
+                return biblioteca;
+
+            } else if (continuar === "no") {
+                console.log(`⚠️  Operación no realizada: El libro no se ha eliminado`);
+                impresionTablaLibro(biblioteca);
+                return biblioteca;
             }
-            console.log(`⚠️  Libro eliminado`);
-
-            return biblioteca;
         } else {
-            return [];
+            console.log(`⚠️  El libro está prestado, no se puede eliminar`);
         }
 
     } else {
@@ -203,11 +204,10 @@ const borrarLibro = id => {
     }
 }
 
-// console.table(resultadosParaVista(borrarLibro(12)));
-
 module.exports = {
     agregarLibro,
     buscarLibro,
     ordenarLibros,
-    borrarLibro
+    borrarLibro,
+    biblioteca
 }

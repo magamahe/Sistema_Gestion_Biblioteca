@@ -20,7 +20,8 @@ const {
   agregarLibro,
   buscarLibro,
   ordenarLibros,
-  borrarLibro
+  borrarLibro,
+  biblioteca
 } = require("./02-gestion_libro.js");
 
 const {
@@ -114,11 +115,13 @@ function menuPrincipal() {
         break;
 
       case 3:
-        const criterio = prompt("↕️ Ordenar por: titulo o año: ");
-        ordenarLibros(criterio);
+        const criterio = prompt("↕️  Ordenar por: titulo o año: ");
+        const orden = ordenarLibros(criterio);
+        impresionTablaLibro(orden);
         break;
 
       case 4:
+        impresionTablaLibro(biblioteca);
         borrarLibro(parseInt(prompt("🗑️  ID del libro a borrar: ")));
         break;
 
