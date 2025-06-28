@@ -17,7 +17,7 @@ function prestarLibro(idLibro, idUsuario) {
   if (libro && usuario && libro.disponible) {
     libro.disponible = false;                 // Marca el libro como no disponible
     usuario.librosPrestados.push(libro.id);   // Agrega el ID del libro al array del usuario
-    console.log(`✅ Libro: ${libro.título} prestado a: ${usuario.nombre}.`);
+    console.log(`✅ Libro: ${libro.titulo} prestado a: ${usuario.nombre}.`);
     return true;                              // Devuelve true indicando que el préstamo fue exitoso
   } else {
     console.log(`❌ No se pudo realizar el préstamo del libro. Verifique:\n- ID del libro: ${idLibro}\n- ID del usuario: ${idUsuario}`);
@@ -39,7 +39,7 @@ function devolverLibro(idLibro, idUsuario) {
   if (libro && usuario && !libro.disponible) {
         libro.disponible = true; // Marca el libro como disponible nuevamente
         usuario.librosPrestados = usuario.librosPrestados.filter(id => id !== idLibro);// Quita el ID del libro del array de libros prestados del usuario
-        console.log(` ✅ Libro: ${libro.título} devuelto por: ${usuario.nombre} correctamente.`); // Muestra un mensaje indicando que la devolución fue exitosa
+        console.log(` ✅ Libro: ${libro.titulo} devuelto por: ${usuario.nombre} correctamente.`); // Muestra un mensaje indicando que la devolución fue exitosa
         return true; // Devuelve true para indicar que la operación fue exitosa
   } else {
         console.log("❌No se pudo realizar la devolución del libro.");// Si no se cumplen las condiciones, informa que no se pudo devolver
@@ -52,7 +52,7 @@ Funcion utilizada para mostrar los libros disponibles al momento de hacer el pre
 
 function mostrarLibrosDisponibles(libros) {
   const disponibles = libros.filter(libro => libro.disponible);
-  console.table(disponibles, ["id", "título", "autor", "año"]); // Muestra solo algunas columnas
+  console.table(disponibles, ["id", "titulo", "autor", "anio"]); // Muestra solo algunas columnas
 }
 
 

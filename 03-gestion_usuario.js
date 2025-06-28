@@ -25,8 +25,19 @@ function generarNuevoIdUsuario() {
 
 function registrarUsuario(nombre, email) {
   const nuevoId = generarNuevoIdUsuario();// Genera un nuevo ID basado en los IDs actuales
-  usuarios.push({ id: nuevoId, nombre, email, librosPrestados: [] }); // Agrega el nuevo usuario al array global con datos iniciales
-  console.log(`\n✅ Usuario registrado correctamente:  \n- ID= ${nuevoId} \n- Nombre= ${nombre}  \n- Email= ${email} `);   // Muestra mensaje de éxito
+  const nuevoUsuario = {
+    id: nuevoId,
+    nombre: nombre,
+    email: email,
+    librosPrestados: [] // Campo requerido por el sistema
+  };
+  usuarios.push(nuevoUsuario); // Agrega el nuevo usuario al array global con datos iniciales
+  //console.log(`\n✅ Usuario registrado correctamente:  \n- ID= ${nuevoId} \n- Nombre= ${nombre}  \n- Email= ${email} `);   // Muestra mensaje de éxito
+  console.table({
+    ID: nuevoUsuario.id,
+    Nombre: nuevoUsuario.nombre,
+    Email: nuevoUsuario.email
+  });
   return true;
 }
 
@@ -38,7 +49,9 @@ Devuelve el array completo de usuarios.
 // 📋 Muestra todos los usuarios registrados en formato de tabla.
 // Es útil para tener una vista ordenada desde la consola.
 function mostrarTodosLosUsuarios() {
+  console.log("�✨ === USUARIOS DE LA BIBLIOTECA === ✨�")
   console.table(usuarios);
+  return true;
 }
 
 
@@ -88,22 +101,31 @@ Elimina un usuario dado su nombre y email.
 // Muestra mensajes de éxito o error según corresponda.
 
 function borrarUsuario(nombre, email) {
-  const index = usuarios.findIndex(u =>                         // Buscamos el índice del usuario cuyo nombre (normalizado) y email coincidan
-    normalizarTexto(u.nombre) === normalizarTexto(nombre) &&   // Compara nombres sin acentos
-    u.email.toLowerCase() === email.toLowerCase()              // Compara emails sin importar mayúsculas
+  const index = usuarios.findIndex(u =>
+    normalizarTexto(u.nombre) === normalizarTexto(nombre) &&
+    u.email.toLowerCase() === email.toLowerCase()
   );
 
-  // Si no se encontró el usuario, se informa y se termina la función
   if (index === -1) {
     console.log(`❌ Usuario no encontrado con ese nombre: ${nombre}  y email: ${email}`);
     return false;
   }
+
   const usuarioBorrado = usuarios[index];
-  usuarios.splice(index, 1);// Eliminamos al usuario del array usando su posición
-  
-  console.log(`✅ Usuario borrado correctamente.: \nId: ${usuarioBorrado.id} \nusuario :${usuarioBorrado.nombre} \nemail: ${usuarioBorrado.email} `);   // Confirmamos el borrado con un mensaje
+  usuarios.splice(index, 1);
+  console.log("=========================================");
+  console.log("✅✅ Usuario borrado correctamente:✅✅");
+  // Mostrar solo campos clave en tabla (sin índice extra)
+  console.table({
+    id: usuarioBorrado.id,
+    nombre: usuarioBorrado.nombre,
+    email: usuarioBorrado.email
+  });
+  console.log("=========================================");
+
   return true;
 }
+
 
 // 🧽 Normaliza texto convirtiendo a minúsculas y eliminando acentos.
 // Esto permite comparar cadenas sin preocuparse por acentos o mayúsculas.
