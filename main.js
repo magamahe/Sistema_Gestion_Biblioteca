@@ -41,7 +41,11 @@ const {
 
 const {
   calcularEstadisticas
-} = require("./07-calculos_estadisticos.js")
+} = require("./07-calculos_estadisticos.js");
+
+const {
+  normalizarDatos
+} = require("./08-manejo_cadenas.js");
 
 function menuPrincipal() {
   while (true) {
