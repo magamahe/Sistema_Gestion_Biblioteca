@@ -8,7 +8,7 @@ const ultimoElemento = array => array[array.length - 1];
 
 // función para formatear la vista de un solo objeto (anio por año, titulo po título y genero por género)
 const transformarLibro = elemento => ({
-    ID: elemento.id,
+    //ID: elemento.id,
     Título: elemento.titulo,
     Autor: elemento.autor,
     Año: elemento.anio,
@@ -31,7 +31,7 @@ const resultadosParaVistaLibros = datos => {
 const impresionTablaLibro = elemento => console.table(resultadosParaVistaLibros(elemento));
 
 const transformarUsuario = elemento => ({
-    ID: elemento.id,
+    //ID: elemento.id,
     Nombre: elemento.nombre,
     Email: elemento.email,
     LibrosPrestados:elemento.librosPrestados 

@@ -90,28 +90,36 @@ function menuPrincipal() {
 
     switch (opcion) {
       case 1:
-        agregarLibro(
-          parseInt(prompt("🔢 ID del libro: ")),
-          prompt("📖 Título: "),
-          prompt("✍️ Autor: "),
+        const nuevoLibro = agregarLibro(
+          // parseInt(prompt("🔢 ID del libro: ")),
+          prompt("📖Título: "),
+          prompt("✍️  Autor: "),
           parseInt(prompt("📅 Año: ")),
-          prompt("🏷️ Género: ")
+          prompt("🏷️  Género: ")
         );
+
+        if (nuevoLibro) {
+          console.log("\n ✅  Libro agregado exitosamente. Mostrando detalles:");
+          impresionTablaLibro(nuevoLibro);
+        } else {
+          console.log("\n ❌  La operación fue cancelada, no se agregó ningún libro.");
+        }
+
         break;
 
       case 2:
         const crit = prompt("🔍 Buscar por: ¿titulo, autor o genero? ");
         const val = prompt("🔎 Ingrese valor a buscar: ");
-        console.log(buscarLibro(crit, val));
+        buscarLibro(crit, val);
         break;
 
       case 3:
-        const criterio = prompt("↕️ Ordenar por: titulo o año ");
+        const criterio = prompt("↕️ Ordenar por: titulo o año: ");
         ordenarLibros(criterio);
         break;
 
       case 4:
-        borrarLibro(parseInt(prompt("🗑️ ID del libro a borrar: ")));
+        borrarLibro(parseInt(prompt("🗑️  ID del libro a borrar: ")));
         break;
 
       case 5:
@@ -173,13 +181,13 @@ function menuPrincipal() {
         console.log("=====================================");
         console.log(`Año de publicación promedio: ${estadisticasLibros.anioPromedio}`);
         console.log("\n📖 Libro más antiguo:");
-        console.table(estadisticasLibros.libroMasAntiguo);
+        impresionTablaLibro(estadisticasLibros.libroMasAntiguo);
         console.log("\n📖 Libro más nuevo:");
-        console.table(estadisticasLibros.libroMasNuevo);
+        impresionTablaLibro(estadisticasLibros.libroMasNuevo);
         console.log("\n📖 Diferencia de años entre el libro más antiguo y el más nuevo:");
         console.log(`${estadisticasLibros.diferenciaAnios}`);
         console.log("\n📚 Conteo de libros por año:");
-        console.table(estadisticasLibros.anioMasFrecuente);
+        impresionTablaLibro(estadisticasLibros.anioMasFrecuente);
         break;
 
       case 14:

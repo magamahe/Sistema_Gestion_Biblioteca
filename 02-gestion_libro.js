@@ -1,8 +1,8 @@
 // importación de funciones auxiliares 
 const { encontrado,
-        resultadosParaVistaLibros,
-        mapaCriterios
-        } = require("./00-funciones_auxiliares.js");
+    resultadosParaVistaLibros,
+    mapaCriterios
+} = require("./00-funciones_auxiliares.js");
 
 // llamada a prompt para interactuar con el usuario
 const prompt = require("prompt-sync")();
@@ -17,7 +17,6 @@ const biblioteca = [...libros];
 
 /**
  * Agrega un nuevo libro a la biblioteca
- * @param {number} id - El id del libro.
  * @param {string} titulo - El título del libro.
  * @param {string} autor - El autor del libro.
  * @param {number} anio - El año de publicación.
@@ -26,86 +25,48 @@ const biblioteca = [...libros];
  */
 
 // función que agrega libro 
-const agregarLibro = (id, titulo, autor, anio, genero) => {
+const agregarLibro = (titulo, autor, anio, genero) => {
 
-    //si el libro no es encontrado, se lo agrega a la biblioteca
-    if (!encontrado(biblioteca, id)) {
-        // se crea una variable con el objeto que tiene todas las propiedades del libro y las recibe de los parametros
-        let nuevoLibro = {
-            id: id,
-            titulo: titulo,
-            autor: autor,
-            anio: anio,
-            genero: genero,
-            disponible: true
-        }
-
-        //se agrega al array biblioteca
-        biblioteca.push(nuevoLibro);
-
-        console.log(`✅ El libro ha sido agregado con éxito`);
-        return nuevoLibro;
-
-    } else {
-        // mensajes en caso de false
-        console.log(`❌ ERROR: El ID ya exite`);
-        return null; // Indica que la operación falló
+    //deteriman que anio sea un número de 4 digitos, menor al año actual
+    let anioActual = new Date().getFullYear();
+    if (isNaN(anio) || anio.toString().length < 4) {
+        console.log("⚠️  Ingresa un número de 4 cifras para el año de publicación");
+        return null;
+    } else if (anio > anioActual) {
+        console.log("⚠️  Ingresa un año menor al año actual");
+        return null;
     }
+
+    //El usuario no debe pasar ID, este se debe crear automaticamente e incrementalmente
+    // Encontrar el ID más alto actual en la biblioteca
+    const maxId = biblioteca.reduce((max, libro) => (libro.id > max ? libro.id : max), 0);
+
+    const nuevoLibro = {
+        id: maxId + 1,
+        titulo,
+        autor,
+        anio,
+        genero
+    };
+
+    //Revisar que nuevoLibro no esté duplicado en Biblioteca
+    //.some(): Devuelve true si al menos un elemento del array cumple la condición, y false si no
+
+    const yaExiste = biblioteca.some(libro =>
+        //pasar a minusculas y quitar espacios para comparacion exacta
+        libro.titulo.toLowerCase().trim() === titulo.toLowerCase().trim() && libro.autor.toLowerCase().trim() === autor.toLowerCase().trim()
+    )
+
+    if (yaExiste) {
+        console.log(`⚠️  Advertencia: El libro "${titulo}" de ${autor} ya se encuentra en la biblioteca.`);
+        return null; // detiene la función y el libro no se agrega 
+    }
+
+    //se agrega al array biblioteca
+    biblioteca.push(nuevoLibro);
+
+    return nuevoLibro;
 }
-
-//prueba
-// let libro1 = agregarLibro(1, "Harry Potter", "stef", 2010, "misterio");
-// let libro2 = agregarLibro(12, "Harry Potter", "stef", 2010, "misterio")
-
-
-// Comprobamos si libro1 NO es null antes de intentar usarlo
-// if (libro1) {
-//     console.log("Datos del libro 1:");
-//     console.table(resultadosParaVista(libro1));
-// }
-
-
-// Comprobamos si libro2 NO es null antes de intentar usarlo
-// if (libro2) {
-//     console.log("Datos del libro 2:");
-//     console.table(resultadosParaVista(libro2));
-// }
-
-// problema -> usuario proporcion id para libro, lo ideal es que sea automático y autoincremental
-// posible solución:
-// const agregarLibro = (titulo, autor, anio, genero) => {
-//     // Encontrar el ID más alto actual en la biblioteca
-
-// Revisar que nuevoLibro no esté duplicado en Biblioteca
-// .some(): Devuelve true si al menos un elemento del array cumple la condición, y false si no
-
-// const yaExiste = biblioteca.some( libro => {
-// pasar a minusculas y quitar espacios para comparacion exacta
-// libro.titulo.toLowerCase().trim() === titulo.toLowerCase().trim() && libro.autor.toLowerCase().trim() === autor.toLowerCase().trim()
-// })
-
-// if ( yaExiste ) {
-//     console.log(`⚠️  Advertencia: El libro "${titulo}" de ${autor} ya se encuentra en la biblioteca. No se agregó.`);
-//     return null; // detiene la función y el libro no se agrega  
-// }
-
-//     const maxId = biblioteca.reduce((max, libro) => (libro.id > max ? libro.id : max), 0);
-
-//     const nuevoLibro = {
-//         id: maxId + 1,
-//         titulo, 
-//         autor,
-//         anio,
-//         genero
-//     };
-
-//     console.log("✅ Libro agregado con éxito:");
-//     console.log(nuevoLibro);
-
-//     return nuevoLibro;
-// };
-
-// console.table(resultadosParaVista(biblioteca)); // imprime el array como tabla...
 
 // b)- Crear una función buscarLibro(criterio, valor) que permita buscar libros por título, autor o género utilizando el algoritmo de búsqueda lineal.
 
@@ -138,15 +99,13 @@ const buscarLibro = (criterio, valor) => {
 
     if (resultados.length > 0) {
         console.log(`✅ Se encontraron ${resultados.length} libro(s) de ${criterio} con el valor ${valor}:`)
-        console.table(resultadosParaVista(resultados))
+        console.table(resultadosParaVistaLibros(resultados))
     } else {
         console.log(`⚠️  No se encontraron libros del ${criterio} con el valor ${valor}.`);
     }
 
     return resultados;
 }
-
-// buscarLibro("genero", "NOVELA")
 
 // c)- Desarrollar una función ordenarLibros(criterio) que ordene los libros por título o año utilizando el algoritmo de ordenamiento burbuja (bubble sort) y luego muestre los libros ordenados en la consola.
 
@@ -232,7 +191,7 @@ const borrarLibro = id => {
                 biblioteca.splice(indice, 1);
             }
             console.log(`⚠️  Libro eliminado`);
-            
+
             return biblioteca;
         } else {
             return [];
