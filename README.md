@@ -35,7 +35,7 @@ Desarrollar un sistema funcional que permita administrar libros, usuarios y pré
 - `01-lista_libros.js`: Array con datos iniciales de libros.  
 
 <p align="center">
-  <img src="image/libros.png" alt="Logo libros" width="300"/>
+  <img src="image/libros.png" alt="Logo libros" style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>array de Libros</em>
 </p>
@@ -44,21 +44,21 @@ Desarrollar un sistema funcional que permita administrar libros, usuarios y pré
 - `02-gestion_libro.js`: Funciones para manejar libros.  
 
 <p align="center">
-  <img src="image/busqueda_titulo.png" alt="Logo titulo" width="300"/>
+  <img src="image/busqueda_titulo.png" alt="Logo titulo" style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>Ejemplo: Búsqueda de libro según elección del usuario</em>
 </p>
 
 - `03-gestion_usuario.js`: Funciones para manejar usuarios.  
 <p align="center">
-  <img src="image/funciones_usuario.png" alt="Logo usuario" width="300"/>
+  <img src="image/funciones_usuario.png" alt="Logo usuario" style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>Ejemplo: funcion generarNuevoIdUsuario y registrarUsuario</em>
 </p>
 
 En las funciones declaradas, se hace manejo de errores para un correcto funcionamiento del sistema:
 <p align="center">
-  <img src="image/errores.png" alt= "error"  width="500"/>
+  <img src="image/errores.png" alt= "error"  style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>Error: ingreso de mail sin @ y .</em>
 </p>
@@ -68,7 +68,7 @@ En las funciones declaradas, se hace manejo de errores para un correcto funciona
 - `06-identificacion_libro.js`: Funciones avanzadas de identificación de libros.  
   
 <p align="center">
-  <img src="image/reporte_libros.png" alt="Logo reporte" width="300"/>
+  <img src="image/reporte_libros.png" alt="Logo reporte" style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>Salida por consola</em>
 </p>
@@ -86,7 +86,7 @@ En las funciones declaradas, se hace manejo de errores para un correcto funciona
 - `08-manejo_cadenas.js`: Normalización y manipulación de strings.  
 - `09-menu.js`: Menú interactivo y punto de entrada al programa. 
 <p align="center">
-  <img src="image/menu.png" alt="Logo menu" width="300"/>
+  <img src="image/menu.png" alt="Logo menu" style="max-width: 700px; width: 100%;"/>
   <br/>
   <em>node 09-menu.js</em>
   <br/>
