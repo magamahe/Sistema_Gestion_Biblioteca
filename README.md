@@ -1,7 +1,8 @@
 <p align="center">
   <img src="logo.png" alt="Logo ADA" width="300"/>
 </p>
-# Sistema de Gestión de Biblioteca </center>
+
+# <p align="center">  Sistema de Gestión de Biblioteca </p> 
 
 Este proyecto consiste en una aplicación desarrollada en **JavaScript** puro para la gestión de una biblioteca. 
 
