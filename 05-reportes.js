@@ -22,12 +22,14 @@ function generarReporteLibros() {
 
     //Reporte de Libros
     console.log("📚📋 REPORTE DE LIBROS 📋📚");
+    console.log("=========================================");
     console.log(`📘 Cantidad Total de libros: ${totalLibros}`);
     console.log(`📕 Cantidad de libros Prestados: ${librosPrestados}`);
     console.log(`📗 Cantidad de libros por Género:`);
     console.table(tablaLibrosGenero);
     console.log(`📙 Libro más Antiguo: ${libroMasAntiguo.titulo} , 📅 Año: ${libroMasAntiguo.anio}`);
     console.log(`📒 Libro más Nuevo: ${libroMasNuevo.titulo}, 📅 Año: ${libroMasNuevo.anio}`);
+
 }
 
 module.exports = {

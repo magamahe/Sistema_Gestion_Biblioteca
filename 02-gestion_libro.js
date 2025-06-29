@@ -103,7 +103,7 @@ const buscarLibro = (criterio, valor) => {
         console.log(`✅ Se encontraron ${resultados.length} libro(s) de ${criterio} con el valor ${valor}:`)
         impresionTablaLibro(resultados);
     } else {
-        console.log(`⚠️  No se encontraron libros del ${criterio} con el valor ${valor}.`);
+        console.log(`⚠️  No se encontraron libros del ${criterio} con el valor: "${valor}".`);
     }
 
     return resultados;

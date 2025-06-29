@@ -177,6 +177,8 @@ function menuPrincipal() {
 
       case 12:
         const titulosLargos = librosConPalabrasEnTitulo();
+        console.log("📚 Libros con títulos de más de una palabra:");
+        console.log("=====================================");
         console.table(titulosLargos);
         break;
 
@@ -199,13 +201,20 @@ function menuPrincipal() {
       case 14:
         const librosNormalizados = normalizarDatos(libros);
         const usuariosNormalizados = normalizarDatos(usuarios);
-
+        console.log("       📚 DATOS NORMALIZADOS:");
+        console.log("=====================================");
+        console.log("🛠️  Convierte títulos a MAYÚSCULA y elimina espacios de nombres de autores.");
+        
         impresionTablaLibro(librosNormalizados);
+        console.log("=====================================");
+        
+        console.log("🛠️  Convierte mails a minúscula y título de libros prestados a MAYUSCULA");
         impresionTablaUsuario(usuariosNormalizados, librosNormalizados);
+               
         break;
 
       case 0:
-        console.log("👋 Gracias por usar el sistema. ¡Hasta luego!");
+        console.log("👋 Gracias por usar el sistema de biblioteca. ¡Te esperamos pronto!");
         return; // 🔚 Salir de la función y del programa
     }
 
