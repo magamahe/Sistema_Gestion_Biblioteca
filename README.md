@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logo.png" alt="Logo ADA" width="300"/>
+  <img src="image/logo.png" alt="Logo ADA" width="300"/>
 </p>
 
 # <p align="center">  Sistema de Gestión de Biblioteca </p> 
@@ -25,6 +25,7 @@ Desarrollar un sistema funcional que permita administrar libros, usuarios y pré
    - Normalización de cadenas, validación y limpieza.  
 6. **Interfaz de usuario por consola**  
    - Menú interactivo usando `prompt()` y estructura `switch`.
+  
 
 ---
 
@@ -32,16 +33,70 @@ Desarrollar un sistema funcional que permita administrar libros, usuarios y pré
 
 - `00-funciones_auxiliares.js`: Funciones auxiliares reutilizables.  
 - `01-lista_libros.js`: Array con datos iniciales de libros.  
+
+<p align="center">
+  <img src="image/libros.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>array de Libros</em>
+</p>
+
 - `01-lista_usuarios.js`: Array con datos iniciales de usuarios.  
 - `02-gestion_libro.js`: Funciones para manejar libros.  
+
+<p align="center">
+  <img src="image/busqueda_titulo.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>Ejemplo: Búsqueda de libro según elección del usuario</em>
+</p>
+
 - `03-gestion_usuario.js`: Funciones para manejar usuarios.  
+<p align="center">
+  <img src="image/funciones_usuario.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>Ejemplo: funcion generarNuevoIdUsuario y registrarUsuario</em>
+</p>
+
+En las funciones declaradas, se hace manejo de errores para un correcto funcionamiento del sistema:
+<p align="center">
+  <img src="image/errores.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>Error: ingreso de mail sin @ y .</em>
+</p>
+
 - `04-sistema_prestamos.js`: Funciones para préstamos y devoluciones.  
 - `05-reportes.js`: Funciones para reportes estadísticos.  
 - `06-identificacion_libro.js`: Funciones avanzadas de identificación de libros.  
+  
+<p align="center">
+  <img src="image/reporte_libros.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>Salida por consola</em>
+</p>
+
 - `07-calculos_estadisticos.js`: Funciones para cálculos matemáticos y estadísticos.  
+
+<p align="center">
+  <img src="image/estadistica_cod.png" alt="Código estadística" width="380"/>
+  <img src="image/estadistica.png" alt="Salida estadística" width="280"/>
+  <br/>
+  <em>Código y salida por consola de estadísticas de libros</em>
+</p>
+   
+
 - `08-manejo_cadenas.js`: Normalización y manipulación de strings.  
-- `09-menu.js`: Menú interactivo y punto de entrada al programa.  
-- `documentacion/`: Documentos relacionados al flujo de trabajo y validaciones.  
+- `09-menu.js`: Menú interactivo y punto de entrada al programa. 
+<p align="center">
+  <img src="image/menu.png" alt="Logo ADA" width="300"/>
+  <br/>
+  <em>node 09-menu.js</em>
+  <br/>
+  <em>Salida por consola: Menu</em>
+</p> 
+
+- `documentacion/`: Documentos relacionados al flujo de trabajo y validaciones.
+
+- `image/`: Imagenes PNG necesarias para el README.md.
+
 - `README.md`: Documentación principal del proyecto.
 
 ---
@@ -77,15 +132,16 @@ node 09-menu.js
 
 ## 🧑‍💻 Autoras
 
-- BORGOGNO, Antonela [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)
+- BORGOGNO, Antonela  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/Antonela89)
 
 
-- MARTINEZ, Gabriela  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)
+- MARTINEZ, Gabriela  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/magamahe)
+
 ---
 
 ## 📄 Licencia
 <p align="center">
-  <img src="logo_ada.png" alt="Logo ADA" width="200"/>
+  <img src="image/logo_ada.png" alt="Logo ADA" width="200"/>
 <center> Programa de formación en desarrollo web, Cohorte intro-js-202504  </center>
 
 
