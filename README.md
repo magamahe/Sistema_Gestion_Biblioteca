@@ -1,5 +1,6 @@
-<center><img src="logo.png" alt="Logo ADA" width="300"/>
-
+<p align="center">
+  <img src="logo.png" alt="Logo ADA" width="300"/>
+</p>
 # Sistema de Gestión de Biblioteca </center>
 
 Este proyecto consiste en una aplicación desarrollada en **JavaScript** puro para la gestión de una biblioteca. 
@@ -9,8 +10,6 @@ Este proyecto consiste en una aplicación desarrollada en **JavaScript** puro pa
 Desarrollar un sistema funcional que permita administrar libros, usuarios y préstamos, aplicando conceptos de estructuras de datos, algoritmos, validaciones y manejo de consola en JavaScript.
 
 ---
-## 🚀 Funcionalidades principales
-
 ## 🚀 Funcionalidades principales
 
 1. **Gestión de libros**  
