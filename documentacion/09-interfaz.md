@@ -10,15 +10,35 @@ Este script es el punto de entrada principal de la aplicación de gestión de bi
 
 Este módulo es el orquestador principal y depende de todos los demás módulos del proyecto para funcionar:
 *   `prompt-sync` para la interacción con el usuario.
-*   Todos los módulos de gestión, datos y análisis (`00-funciones_auxiliares.js` a `08-manejo_cadenas.js`).
+*   `00-funciones_auxiliares.js`: Para utilidades como validación de entrada y formateo de tablas.
+*   `01-lista_libros.js y 01-lista_usuarios.js`: Para los datos base.
+*   `02-gestion_libro.js`: Para la lógica de negocio de los libros.
+*   `03-gestion_usuario.js`: Para la lógica de negocio de los usuarios.
+*   `04-sistema_prestamos.js`: Para la lógica de préstamos y devoluciones.
+*   `05 a 08-archivos.js`: Para reportes, análisis y procesamiento avanzado de datos.
 
 ## Funcionamiento del Código
 
 El script se centra en una única función principal, `menuPrincipal()`.
 
+## Diagrama de Flujo Lógico
+
+graph TD
+    A[▶️ Iniciar Aplicación] --> B{📚 Mostrar Menú Principal};
+    B --> C[📥 Capturar Opción del Usuario];
+    C --> D{❓ Opción Válida?};
+    D -- No ❌ --> E[⚠️ Mostrar Error de Opción];
+    E --> F[⏸️ Pausa: Presione Enter];
+    F --> B;
+    D -- Sí ✅ --> G{⚙️ Ejecutar Switch (opción)};
+    G -- Opción 1..14 --> H[📞 Llamar a la Función Correspondiente];
+    G -- Opción 0 --> I[👋 Mostrar Despedida];
+    H --> F;
+    I --> J[⏹️ Fin del Programa];
+
 ### 1️⃣ Importación de Dependencias
 
-```js
+````js`
 const prompt = require("prompt-sync")();
 const { ... } = require("./00-funciones_auxiliares.js");
 const { ... } = require("./02-gestion_libro.js");
