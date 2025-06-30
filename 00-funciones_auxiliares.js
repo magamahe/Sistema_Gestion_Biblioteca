@@ -1,4 +1,5 @@
 // archivo con funciones que pueden ser reutilizada a lo largo del código
+const prompt = require("prompt-sync")();
 
 // crear una función auxiliar para buscar por ID
 const encontrado = (array, id) => array.find(elemento => elemento.id === id);
@@ -117,6 +118,15 @@ const mapaCriterios = {
     "anio": "anio"
 };
 
+function solicitarTextoValido(mensaje) {
+  let texto = prompt(mensaje);
+  while (!texto || texto.trim() === "") {
+    console.log("❌ El campo no puede quedar vacío.");
+    texto = prompt(mensaje);
+  }
+  return texto.trim();
+}
+
 //exportación para que puedan emplearse en otros archivos
 module.exports = {
     encontrado,
@@ -126,5 +136,6 @@ module.exports = {
     resultadosParaVistaUsuarios,
     impresionTablaUsuario,
     impresionUsuariosConDetalle,
+    solicitarTextoValido,
     mapaCriterios
 };

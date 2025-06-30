@@ -11,6 +11,8 @@ const prompt = require("prompt-sync")();
 const {
   impresionTablaUsuario,
   impresionTablaLibro,
+  solicitarTextoValido
+
 } = require("./00-funciones_auxiliares.js");
 
 const libros = require("./01-lista_libros.js");
@@ -126,11 +128,7 @@ function menuPrincipal() {
         break;
 
       case 5:
-        let nombre = prompt("🧑 Nombre: ");
-        while (!nombre || nombre.trim() === "") {
-          console.log("❌ Error: El nombre no puede quedar vacío.");
-          nombre = prompt("🧑 Ingrese un nombre válido:");
-        }
+        const nombre = solicitarTextoValido("🧑 Ingresá el nombre del usuario:");
         
         let email = prompt("📧 Email: ");
         while (!esEmailValido(email)) {
