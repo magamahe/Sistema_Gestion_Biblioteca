@@ -197,7 +197,7 @@ function menuPrincipal() {
         break;
 
       case 14:
-        const librosNormalizados = normalizarDatos(libros);
+        const librosNormalizados = normalizarDatos(biblioteca);
         const usuariosNormalizados = normalizarDatos(usuarios);
 
         impresionTablaLibro(librosNormalizados);
