@@ -9,6 +9,7 @@ const prompt = require("prompt-sync")();
 // const prestamos = require('./prestamos.js');
 
 const {
+  solicitarTextoValido,
   impresionTablaUsuario,
   impresionTablaLibro,
 } = require("./00-funciones_auxiliares.js");
@@ -91,13 +92,13 @@ function menuPrincipal() {
 
     switch (opcion) {
       case 1:
-        const nuevoLibro = agregarLibro(
-          // parseInt(prompt("🔢 ID del libro: ")),
-          prompt("📖Título: "),
-          prompt("✍️  Autor: "),
-          parseInt(prompt("📅 Año: ")),
-          prompt("🏷️  Género: ")
-        );
+        // const id = parseInt(prompt("🔢 ID del libro: ")),
+        const titulo = solicitarTextoValido("📖 Ingresá el título del libro: ");
+        const autor = solicitarTextoValido("✍ Ingresá el autor del libro: ");
+        const anio = parseInt(solicitarTextoValido("📅 Ingresá el año de publicación: "));
+        const genero = solicitarTextoValido("🏷️ Ingresá el género del libro: ")
+
+        const nuevoLibro = agregarLibro(titulo, autor, anio, genero);
 
         if (nuevoLibro) {
           console.log("\n ✅  Libro agregado exitosamente. Mostrando detalles:");
@@ -204,13 +205,13 @@ function menuPrincipal() {
         console.log("       📚 DATOS NORMALIZADOS:");
         console.log("=====================================");
         console.log("🛠️  Convierte títulos a MAYÚSCULA y elimina espacios de nombres de autores.");
-        
+
         impresionTablaLibro(librosNormalizados);
         console.log("=====================================");
-        
+
         console.log("🛠️  Convierte mails a minúscula y título de libros prestados a MAYUSCULA");
         impresionTablaUsuario(usuariosNormalizados, librosNormalizados);
-               
+
         break;
 
       case 0:
