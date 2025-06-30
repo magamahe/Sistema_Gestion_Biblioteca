@@ -1,6 +1,18 @@
 // archivo con funciones que pueden ser reutilizada a lo largo del código
 const prompt = require("prompt-sync")();
 
+//validar prompt 
+const prompt = require("prompt-sync")();
+
+function solicitarTextoValido(mensaje) {
+  let texto = prompt(mensaje);
+  while (!texto || texto.trim() === "") {
+    console.log("❌ El campo no puede quedar vacío.");
+    texto = prompt(mensaje);
+  }
+  return texto.trim();
+}
+
 // crear una función auxiliar para buscar por ID
 const encontrado = (array, id) => array.find(elemento => elemento.id === id);
 
@@ -9,7 +21,7 @@ const ultimoElemento = array => array[array.length - 1];
 
 // función para formatear la vista de un solo objeto (anio por año, titulo po título y genero por género)
 const transformarLibro = elemento => ({
-    
+
     ID: elemento.id,
     Título: elemento.titulo,
     Autor: elemento.autor,
@@ -129,6 +141,7 @@ function solicitarTextoValido(mensaje) {
 
 //exportación para que puedan emplearse en otros archivos
 module.exports = {
+    solicitarTextoValido,
     encontrado,
     ultimoElemento,
     resultadosParaVistaLibros,
