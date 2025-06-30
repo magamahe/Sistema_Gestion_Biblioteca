@@ -31,6 +31,11 @@ function generarNuevoIdUsuario() {
 // Muestra un mensaje de éxito en consola.
 
 function registrarUsuario(nombre, email) {
+   // Validar que nombre NO esté vacío ni solo espacios
+  if (!nombre || nombre.trim() === "") {
+    console.log("❌ Error: El nombre no puede quedar vacío.");
+    return false;
+  }
   const nuevoId = generarNuevoIdUsuario();// Genera un nuevo ID basado en los IDs actuales
   const nuevoUsuario = {
     id: nuevoId,

@@ -126,9 +126,13 @@ function menuPrincipal() {
         break;
 
       case 5:
-        const nombre = prompt("🧑 Nombre: ");
+        let nombre = prompt("🧑 Nombre: ");
+        while (!nombre || nombre.trim() === "") {
+          console.log("❌ Error: El nombre no puede quedar vacío.");
+          nombre = prompt("🧑 Ingrese un nombre válido:");
+        }
+        
         let email = prompt("📧 Email: ");
-
         while (!esEmailValido(email)) {
           console.log("❌ Email inválido. Debe tener al menos 8 caracteres antes de '@', un '@' y un '.' después. Ejemplo: xxxxxxxx@xxx.com");
           email = prompt("📧 Ingrese un email válido: ");
