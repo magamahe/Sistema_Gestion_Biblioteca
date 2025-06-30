@@ -9,6 +9,7 @@ const {
 // Importamos el array de usuarios desde un archivo externo.
 // Este array se compartirá entre todos los módulos que lo requieran.
 const usuarios = require("./01-lista_usuarios.js");
+const libros = require("./01-lista_libros.js");
 
 /* ---------------------------------------------------
 a) registrarUsuario(nombre, email)
@@ -119,6 +120,26 @@ function borrarUsuario(nombre, email) {
   }
 
   const usuarioBorrado = usuarios[index];
+
+/*    // 🚫 Validar si tiene libros prestados
+  if (usuarioBorrado.librosPrestados && usuarioBorrado.librosPrestados.length > 0) {
+    console.log("❌ No se puede borrar el usuario porque tiene libros prestados.");
+    console.log(`📚 Libros prestados: ${usuarioBorrado.librosPrestados.join(", ")}`);
+    return false;
+  } */
+
+    // 🚫 Validar si tiene libros prestados
+  if (usuarioBorrado.librosPrestados && usuarioBorrado.librosPrestados.length > 0) {
+    const titulosPrestados = usuarioBorrado.librosPrestados.map(idLibro => {
+    const libro = libros.find(l => l.id === idLibro);
+    return libro ? libro.titulo : `ID ${idLibro} (desconocido)`;
+  });
+
+  console.log(`❌ No se puede borrar el usuario: "${usuarioBorrado.nombre}" porque tiene libros prestados.`);
+  console.log(`📚 Libros prestados: "${titulosPrestados.join(", ")}"`);
+  return false;
+  }
+
   usuarios.splice(index, 1);
   console.log("=========================================");
   console.log("✅✅ Usuario borrado correctamente:✅✅");
