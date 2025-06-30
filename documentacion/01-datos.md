@@ -82,6 +82,13 @@ module.exports = usuarios;
 
 *   **Propósito**: Hacer que el array `usuarios` esté disponible para otros módulos que necesiten acceder a la lista de usuarios.
 
+---
+
+## Salida Esperada por Consola
+Estos archivos no producen una salida directa a la consola. Su función es únicamente definir y exportar los datos.
+
+---
+
 🏁 **Resumen**
 
 Estos archivos de datos son fundamentales para la aplicación, ya que proporcionan el estado inicial sobre el cual operan todas las funciones de gestión, préstamo y reporte. Separar los datos de la lógica (las funciones que los manipulan) es una práctica de diseño de software sólida.

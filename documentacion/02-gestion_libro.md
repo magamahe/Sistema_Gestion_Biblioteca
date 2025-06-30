@@ -74,6 +74,37 @@ El módulo define y exporta varias funciones de gestión:
     4.  **Eliminación**: Si el usuario confirma, utiliza `indexOf()` para encontrar el índice del libro y `splice(indice, 1)` para eliminarlo del array `biblioteca`.
 *   **Retorno**: Devuelve el array `biblioteca` modificado, o `null` si el libro no existía.
 
+---
+
+## Salida Esperada por Consola
+
+La salida de este módulo depende de la función que se llame.
+
+#### Ejemplo de uso de `agregarLibro`:
+```bash
+# Si se agrega un libro con título "El Alquimista":
+✅  Libro agregado exitosamente. Mostrando detalles:
+┌─────────┬────┬─────────────────┬────────────────┬──────┬─────────┐
+│ (index) │ ID │     Título      │     Autor      │ Año  │ Género  │
+├─────────┼────┼─────────────────┼────────────────┼──────┼─────────┤
+│    0    │ 12 │ 'El Alquimista' │ 'Paulo Coelho' │ 1988 │ 'Fábula'│
+└─────────┴────┴─────────────────┴────────────────┴──────┴─────────┘
+```
+
+#### Ejemplo de uso de `buscarLibro`:
+```bash
+# Si se busca por autor "J.R.R. Tolkien":
+✅ Se encontraron 2 libro(s) de autor con el valor J.R.R. Tolkien:
+┌─────────┬────┬──────────────────────────┬─────────────────┬──────┬─────────────────┐
+│ (index) │ ID │          Título          │      Autor      │ Año  │     Género      │
+├─────────┼────┼──────────────────────────┼─────────────────┼──────┼─────────────────┤
+│    0    │ 4  │ 'El Señor de los Anillos' │ 'J.R.R. Tolkien'│ 1954 │ 'Fantasía épica'│
+│    1    │ 9  │       'El hobbit'        │ 'J.R.R. Tolkien'│ 1937 │    'Fantasía'   │
+└─────────┴────┴──────────────────────────┴─────────────────┴──────┴─────────────────┘
+```
+
+---
+
 🏁 **Resumen**
 
 Este módulo es el corazón de la gestión de la colección de libros. Encapsula toda la lógica de CRUD (Crear, Leer, Actualizar -aunque aquí es ordenar-, Borrar) para los libros, aplicando validaciones y algoritmos de búsqueda y ordenamiento para asegurar la integridad y usabilidad de los datos.

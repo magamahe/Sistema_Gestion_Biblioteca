@@ -54,6 +54,49 @@ menuPrincipal();
 *   **Propósito**: Iniciar la aplicación.
 *   **Detalle**: Una única llamada a `menuPrincipal()` al final del archivo es suficiente para arrancar la interfaz de usuario interactiva.
 
+---
+
+## Salida Esperada por Consola
+
+A continuación se muestra una interacción de ejemplo donde el usuario elige la opción 2 para buscar un libro.
+
+```bash
+📚✨ === SISTEMA DE BIBLIOTECA === ✨📚
+  
+     ✨ === MENU PRINCIPAL === ✨
+       - Seleccione una opción -
+
+1️⃣   Agregar libro
+2️⃣   Buscar libro
+3️⃣   Ordenar libros
+4️⃣   Borrar libro
+5️⃣   Registrar usuario
+6️⃣   Ver todos los usuarios
+7️⃣   Buscar usuario
+8️⃣   Borrar usuario
+9️⃣   Prestar libro
+1️⃣ 0️⃣  Devolver libro
+1️⃣ 1️⃣  Reporte de libros
+1️⃣ 2️⃣  Libros con títulos largos
+1️⃣ 3️⃣  Estadísticas
+1️⃣ 4️⃣  Normalizar datos
+0️⃣   Salir
+
+📥Ingrese una opción: 2
+🔍 Buscar por: ¿titulo, autor o genero? autor
+🔎 Ingrese valor a buscar: Gabriel García Márquez
+✅ Se encontraron 2 libro(s) de autor con el valor Gabriel García Márquez:
+┌─────────┬────┬──────────────────────────────────┬───────────────────────────┬──────┬───────────────────┐
+│ (index) │ ID │              Título              │           Autor           │ Año  │      Género       │
+├─────────┼────┼──────────────────────────────────┼───────────────────────────┼──────┼───────────────────┤
+│    0    │ 1  │      'Cien años de soledad'      │ 'Gabriel García Márquez'  │ 1967 │ 'Realismo mágico' │
+│    1    │ 10 │ 'Crónica de una muerte anunciada'│ 'Gabriel García Márquez'  │ 1981 │      'Novela'     │
+└─────────┴────┴──────────────────────────────────┴───────────────────────────┴──────┴───────────────────┘
+⏎ Presione Enter para volver al menú...
+```
+
+---
+
 🏁 **Resumen**
 
 Este módulo actúa como el "controlador" o "director de orquesta" de la aplicación. No contiene lógica de negocio compleja en sí mismo, pero es responsable de presentar las opciones al usuario y llamar a las funciones correctas de los otros módulos para ejecutar las tareas solicitadas. Su estructura basada en un ciclo `while` y un `switch` es un patrón común para crear aplicaciones de menú por consola.

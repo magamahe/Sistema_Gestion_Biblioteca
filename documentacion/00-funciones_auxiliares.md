@@ -88,6 +88,13 @@ module.exports = { ... };
 
 *   **Propósito**: Hacer que todas las funciones y objetos definidos en este módulo estén disponibles para ser importados y utilizados en otros archivos del proyecto.
 
+---
+
+## Salida Esperada por Consola
+Este módulo no produce una salida directa a la consola, ya que solo define y exporta funciones para ser utilizadas por otros módulos. Su efecto se ve cuando funciones como `impresionTablaLibro` son llamadas desde otros archivos.
+
+---
+
 🏁 **Resumen**
 
 El módulo de funciones auxiliares es la columna vertebral de la reutilización de código en este proyecto. Al centralizar la lógica de formato y búsqueda, se evita la duplicación de código y se facilita el mantenimiento, asegurando que la visualización de datos y la interacción con las estructuras de datos sean consistentes en toda la aplicación.

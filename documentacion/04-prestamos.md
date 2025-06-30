@@ -61,6 +61,32 @@ El módulo define y exporta tres funciones principales:
     2.  La condición del filtro es `libro => libro.disponible`, que devuelve `true` solo para los libros cuya propiedad `disponible` es `true`.
 *   **Retorno**: Un nuevo array que contiene únicamente los objetos de los libros disponibles.
 
+---
+
+## Salida Esperada por Consola
+
+Las funciones `prestarLibro` y `devolverLibro` producen salidas directas a la consola para informar al usuario del resultado de la operación.
+
+#### Ejemplo de uso de `prestarLibro`:
+```bash
+# Si se presta el libro con ID 4 al usuario con ID 103:
+✅ Libro: El Señor de los Anillos prestado a: Lucía Rodríguez.
+```
+```bash
+# Si se intenta prestar un libro no disponible (ID 3):
+❌ No se pudo realizar el préstamo del libro. Verifique:
+- ID del libro: 3
+- ID del usuario: 103
+```
+
+#### Ejemplo de uso de `devolverLibro`:
+```bash
+# Si el usuario 101 devuelve el libro con ID 3:
+✅ Libro: 1984 devuelto por: Ana García correctamente.
+```
+
+---
+
 🏁 **Resumen**
 
 El módulo de préstamos es crucial ya que conecta la gestión de libros con la gestión de usuarios. Implementa la lógica de negocio que cambia el estado de los datos (la disponibilidad de un libro y los préstamos de un usuario) en respuesta a las acciones clave del sistema.
