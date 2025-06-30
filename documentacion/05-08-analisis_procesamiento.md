@@ -57,6 +57,45 @@ Estos módulos dependen de los módulos de datos (`01-lista_libros.js`) y de ges
     5.  Si no es ni libro ni usuario, lo devuelve sin cambios.
 *   **Retorno**: Un nuevo array con los datos normalizados.
 
+---
+
+## Salida Esperada por Consola
+
+#### Ejemplo de uso de `generarReporteLibros()`:
+```bash
+📚📋 REPORTE DE LIBROS 📋📚
+📘 Cantidad Total de libros: 11
+📕 Cantidad de libros Prestados: 3
+📗 Cantidad de libros por Género:
+┌─────────┬─────────────────────────────┬──────────────────────┐
+│ (index) │           Género            │ Cantidad de Libros   │
+├─────────┼─────────────────────────────┼──────────────────────┤
+│    0    │          'Novela'           │          3           │
+│    1    │          'Fantasía'         │          2           │
+│    2    │      'Realismo mágico'      │          1           │
+│    3    │   'Novela de caballerías'   │          1           │
+...
+└─────────┴─────────────────────────────┴──────────────────────┘
+📙 Libro más Antiguo: Don Quijote de la Mancha , 📅 Año: 1605
+📒 Libro más Nuevo: La sombra del viento, 📅 Año: 2001
+```
+
+#### Ejemplo de uso de `calcularEstadisticas()` (parte de la salida):
+```bash
+📊 ESTADÍSTICAS DE LA BIBLIOTECA 📊
+=====================================
+Año de publicación promedio: 1941
+
+📖 Libro más antiguo:
+┌─────────┬────┬───────────────────────────┬──────────────────────┬──────┬─────────────────────────┐
+│ (index) │ ID │          Título           │        Autor         │ Año  │         Género          │
+├─────────┼────┼───────────────────────────┼──────────────────────┼──────┼─────────────────────────┤
+│    0    │ 2  │ 'Don Quijote de la Mancha'│ 'Miguel de Cervantes'│ 1605 │ 'Novela de caballerías' │
+└─────────┴────┴───────────────────────────┴──────────────────────┴──────┴─────────────────────────┘
+```
+
+---
+
 🏁 **Resumen**
 
 Estos módulos demuestran el poder de los métodos de array de alto orden (`map`, `filter`, `reduce`, `sort`) para realizar análisis de datos complejos de manera concisa y expresiva. Proveen insights valiosos sobre la colección de la biblioteca y herramientas para mantener la calidad de los datos.
