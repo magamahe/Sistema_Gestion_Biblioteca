@@ -124,7 +124,7 @@ const ordenarLibros = criterio => {
 
     if (!claveInterna) {
         console.error(`❌ Error: Criterio de ordenamiento inválido: "${criterio}".`);
-        return null; // corta la ejecución
+        return []; // corta la ejecución
     }
 
     // se hace una copia porque se modifica luego con el reordenamiento

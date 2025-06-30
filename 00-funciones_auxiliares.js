@@ -18,6 +18,9 @@ const transformarLibro = elemento => ({
 // función que decide que formatear, si un objeto o una lista de objetos
 
 const resultadosParaVistaLibros = datos => {
+    if (datos = []) {
+        return '=== No hay información para mostrar ===';
+    }
 
     if (Array.isArray(datos)) {
         // si es un array, mapeamos cada elementos y los transformamos con la funcion transformarLibro()
