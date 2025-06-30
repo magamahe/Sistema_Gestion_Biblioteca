@@ -1,5 +1,4 @@
 // archivo con funciones que pueden ser reutilizada a lo largo del código
-const prompt = require("prompt-sync")();
 
 //validar prompt 
 const prompt = require("prompt-sync")();
