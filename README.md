@@ -6,6 +6,24 @@
 
 Este proyecto consiste en una aplicación desarrollada en **JavaScript** puro para la gestión de una biblioteca. 
 
+## ✨ Características destacadas del sistema
+
+Este sistema ha sido desarrollado respetando los puntos establecidos como **MVP (Producto Mínimo Viable)**. A partir de esa base, se han incorporado funcionalidades adicionales que mejoran la experiencia de uso, así como **comprobaciones y validaciones** para garantizar un funcionamiento robusto y seguro frente a errores del usuario.
+
+- **Gestión de usuarios**:
+  - El **ID de usuario** se genera de forma **incremental automática**, asegurando unicidad y facilitando su gestión.
+  - Al intentar eliminar un usuario, el sistema verifica que **no tenga préstamos activos**. En caso contrario, la eliminación se aborta para preservar la integridad del sistema.
+
+- **Gestión de libros**:
+  - Para las operaciones de eliminación, se trabaja sobre una **copia del array original de libros**, lo cual evita mutaciones indeseadas.
+  - Se utiliza una función auxiliar específica que **verifica si el libro se encuentra prestado**. Si está en préstamo, su eliminación se bloquea automáticamente.
+  - Se implementa `console.table()` para presentar información de forma clara y visual en la consola, especialmente útil al listar libros o usuarios.
+
+- **Visualización de datos**:
+  - En los reportes de usuarios con préstamos, se muestra el **ID del libro prestado** junto con su **título**, mejorando significativamente la legibilidad y comprensión de los datos desde consola.
+
+---
+
 ## 🎯 Objetivo
 
 Desarrollar un sistema funcional que permita administrar libros, usuarios y préstamos, aplicando conceptos de estructuras de datos, algoritmos, validaciones y manejo de consola en JavaScript.
@@ -25,7 +43,6 @@ Desarrollar un sistema funcional que permita administrar libros, usuarios y pré
    - Normalización de cadenas, validación y limpieza.  
 6. **Interfaz de usuario por consola**  
    - Menú interactivo usando `prompt()` y estructura `switch`.
-  
 
 ---
 
@@ -66,7 +83,7 @@ En las funciones declaradas, se hace manejo de errores para un correcto funciona
 - `04-sistema_prestamos.js`: Funciones para préstamos y devoluciones.  
 - `05-reportes.js`: Funciones para reportes estadísticos.  
 - `06-identificacion_libro.js`: Funciones avanzadas de identificación de libros.  
-  
+
 <p align="center">
   <img src="image/reporte_libros.png" alt="Logo reporte" style="max-width: 700px; width: 60%;"/>
   <br/>
@@ -81,7 +98,7 @@ En las funciones declaradas, se hace manejo de errores para un correcto funciona
   <br/>
   <em>Código y salida por consola de estadísticas de libros</em>
 </p>
-   
+
 
 - `08-manejo_cadenas.js`: Normalización y manipulación de strings.  
 - `09-menu.js`: Menú interactivo y punto de entrada al programa. 
@@ -104,6 +121,9 @@ En las funciones declaradas, se hace manejo de errores para un correcto funciona
 
 - Tener instalado **Node.js**
 - Clonar el repositorio:
+
+> ⚠️ **Nota:** Si se corre el programa en una terminal **Bash**, algunos iconos pueden no visualizarse correctamente. Se recomienda usar **PowerShell** para una mejor experiencia.
+
 
 ```bash
 git clone https://github.com/magamahe/Sistema_Gestion_Biblioteca.git
@@ -132,18 +152,21 @@ node 09-menu.js
 
 ## 🧑‍💻 Autoras
 
-- BORGOGNO, Antonela  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/Antonela89)
+- **BORGOGNO, Antonela**
 
+  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)  
+  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/Antonela89)
 
-- MARTINEZ, Gabriela  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/magamahe)
+- **MARTINEZ, Gabriela**
 
----
+  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)  
+  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/magamahe)
+
 
 ## 📄 Licencia
 <p align="center">
   <img src="image/logo_ada.png" alt="Logo ADA" width="200"/>
 <center> Programa de formación en desarrollo web, Cohorte intro-js-202504  </center>
-
 
 Proyecto educativo sin fines comerciales. Todos los derechos reservados © 2025.
 
