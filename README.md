@@ -152,18 +152,12 @@ node 09-menu.js
 
 ## 🧑‍💻 Autoras
 
-- **BORGOGNO, Antonela**
+- **BORGOGNO, Antonela** [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/Antonela89)
 
-  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/antonela-borgogno/)  
-  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/Antonela89)
-
-- **MARTINEZ, Gabriela**
-
-  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)  
-  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/magamahe)
+- **MARTINEZ, Gabriela**  [![LinkedIn](https://cdn-icons-png.flaticon.com/24/174/174857.png)](https://www.linkedin.com/in/magamahe/)  [![GitHub](https://cdn-icons-png.flaticon.com/24/733/733553.png)](https://github.com/magamahe)
 
 
-## 📄 Licencia
+## 📄 Institución Académica
 <p align="center">
   <img src="image/logo_ada.png" alt="Logo ADA" width="200"/>
 <center> Programa de formación en desarrollo web, Cohorte intro-js-202504  </center>
