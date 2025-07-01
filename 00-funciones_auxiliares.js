@@ -1,8 +1,6 @@
 // archivo con funciones que pueden ser reutilizada a lo largo del código
 const prompt = require("prompt-sync")();
 
-//validar prompt 
-const prompt = require("prompt-sync")();
 
 function solicitarTextoValido(mensaje) {
   let texto = prompt(mensaje);

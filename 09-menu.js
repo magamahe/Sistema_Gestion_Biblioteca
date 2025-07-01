@@ -9,7 +9,6 @@ const prompt = require("prompt-sync")();
 // const prestamos = require('./prestamos.js');
 
 const {
-  solicitarTextoValido,
   impresionTablaUsuario,
   impresionTablaLibro,
   solicitarTextoValido
@@ -82,7 +81,7 @@ function menuPrincipal() {
 1️⃣ 4️⃣  Normalizar datos
 0️⃣   Salir
 
-📥Ingrese una opción: `);
+📥 Ingrese una opción: `);
 
     const opcion = parseInt(entrada);
 
